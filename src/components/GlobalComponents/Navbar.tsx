@@ -38,7 +38,7 @@ const Navbar = () => {
                   setActiveNav(item.title);
                 }}
                 className={`px-3 md:px-5 py-1.5 text-white hover:text-[#D99413] transition-colors duration-200 ${
-                  activeNav === item.title ? 'font-bold' : 'font-semibold'
+                  activeNav === item.title ? 'font-bold' : 'font-thinbold'
                 }`}
               >
                 {item.title}
@@ -97,7 +97,7 @@ const Navbar = () => {
                   setMobileMenuOpen(false);
                 }}
                 className={`block py-3 px-4 text-gray-800 hover:text-[#930000] transition-colors duration-200 border-b border-[#D99413] last:border-b-0 ${
-                  activeNav === item.title ? 'font-bold' : 'font-semibold'
+                  activeNav === item.title ? 'font-bold' : 'font-normal'
                 }`}
               >
                 {item.title}
