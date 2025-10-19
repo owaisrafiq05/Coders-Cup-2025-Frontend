@@ -35,23 +35,23 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative bg-[#FFF8E7] min-h-screen flex flex-col items-center justify-center overflow-visible">
+    <section className="relative bg-[#FFF8E7] h-[500px] sm:min-h-screen flex flex-col items-center justify-center overflow-visible">
       {/* Background images */}
       <div className="absolute inset-0 flex items-center justify-center">
         <img
           src="circles-hero.png"
           alt="circles background"
-          className="absolute w-full max-w-7xl opacity-90 object-contain pointer-events-none select-none"
+          className="absolute w-full max-w-7xl opacity-100 object-contain pointer-events-none select-none z-0"
         />
         <img
           src="hero-bg.png"
           alt="trophy background"
-          className="absolute w-full max-w-3xl md:max-w-4xl lg:max-w-5xl object-contain pointer-events-none select-none"
+          className="absolute w-full max-w-3xl md:max-w-4xl lg:max-w-5xl object-contain pointer-events-none select-none z-1000"
         />
       </div>
 
       {/* Foreground content (now slightly lower) */}
-      <div className="relative z-10 text-center flex flex-col items-center translate-y-6 md:translate-y-10">
+      <div className="pt-40 sm:pt-54 relative z-10 text-center flex flex-col items-center translate-y-6 md:translate-y-10">
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#930000] mb-8 md:mb-10">
           程式設計師盃杯子的
         </h1>
