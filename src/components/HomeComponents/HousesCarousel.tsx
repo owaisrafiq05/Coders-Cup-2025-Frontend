@@ -1,36 +1,60 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { useState } from "react"
+import type React from "react";
+import { useState } from "react";
 
 type HouseItem = {
-  id: string
-  title: string
-  subtitle?: string
-  image: string
-}
+  id: string;
+  title: string;
+  subtitle?: string;
+  image: string;
+};
 
 const items: HouseItem[] = [
-  { id: "po", title: "Po", subtitle: "The Unpredictable Force", image: "po.jpg" },
-  { id: "oogway", title: "Oogway", subtitle: "Ancient Wisdom", image: "oogway.png" },
-  { id: "tai", title: "Tai Lung", subtitle: "Relentless Power", image: "tai.png" },
-  { id: "mantis", title: "Mantis", subtitle: "Precision & Stings", image: "shen.png" },
-]
+  {
+    id: "po",
+    title: "Po",
+    subtitle: "The Unpredictable Force",
+    image: "po.jpg",
+  },
+  {
+    id: "oogway",
+    title: "Oogway",
+    subtitle: "Ancient Wisdom",
+    image: "oogway.png",
+  },
+  {
+    id: "tai",
+    title: "Tai Lung",
+    subtitle: "Relentless Power",
+    image: "tai.png",
+  },
+  {
+    id: "mantis",
+    title: "Mantis",
+    subtitle: "Precision & Stings",
+    image: "shen.png",
+  },
+];
 
 const HousesCarousel: React.FC = () => {
-  const [expandedId, setExpandedId] = useState<string | null>("po")
+  const [expandedId, setExpandedId] = useState<string | null>("po");
 
   const handleCardClick = (id: string) => {
-    setExpandedId(expandedId === id ? null : id)
-  }
+    setExpandedId(expandedId === id ? null : id);
+  };
 
   return (
     <section className="w-full bg-[#930000] text-[#FFF8E7] rounded-[32px] py-10 md:py-12">
       <div className="max-w-7xl mx-auto px-4">
         {/* Heading */}
         <div className="text-center mb-6 md:mb-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-wide">HOUSES</h2>
-          <p className="mt-4 sm:mt-6 leading-relaxed text-[13px] sm:text-sm md:text-base lg:text-2xl opacity-95">Only The Worthy Shall Rise</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-wide">
+            HOUSES
+          </h2>
+          <p className="mt-4 sm:mt-6 leading-relaxed text-[13px] sm:text-sm md:text-base lg:text-2xl opacity-95">
+            Only The Worthy Shall Rise
+          </p>
         </div>
 
         <div className="flex justify-center px-2 sm:px-4">
@@ -54,7 +78,11 @@ const HousesCarousel: React.FC = () => {
                     transition-all duration-500 ease-in-out
                     /* Mobile: narrow by default, expand on click */
                     basis-12 sm:basis-14 md:basis-20 lg:basis-24
-                    ${expandedId === card.id ? "basis-40 sm:basis-48 md:basis-64 lg:basis-80" : ""}
+                    ${
+                      expandedId === card.id
+                        ? "basis-40 sm:basis-48 md:basis-64 lg:basis-80"
+                        : ""
+                    }
                     /* Desktop: expand on hover */
                     md:hover:basis-64 lg:hover:basis-80
                     /* Added smooth scale animation */
@@ -75,7 +103,11 @@ const HousesCarousel: React.FC = () => {
                         text-xs sm:text-sm drop-shadow
                         transition-all duration-500 ease-in-out
                         /* Mobile: show rotated text when collapsed */
-                        ${expandedId === card.id ? "opacity-0 rotate-0" : "opacity-100 -rotate-90"}
+                        ${
+                          expandedId === card.id
+                            ? "opacity-0 rotate-0"
+                            : "opacity-100 -rotate-90"
+                        }
                         /* Desktop: hide on hover */
                         md:group-hover/card:opacity-0 md:group-hover/card:rotate-0
                       `}
@@ -90,7 +122,11 @@ const HousesCarousel: React.FC = () => {
                       bg-gradient-to-t from-black/80 via-black/40 to-transparent
                       transition-all duration-500 ease-in-out
                       /* Mobile: show on click */
-                      ${expandedId === card.id ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
+                      ${
+                        expandedId === card.id
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 translate-y-4"
+                      }
                       /* Desktop: show on hover */
                       md:group-hover/card:opacity-100 md:group-hover/card:translate-y-0
                       md:opacity-0 md:translate-y-4
@@ -100,7 +136,9 @@ const HousesCarousel: React.FC = () => {
                       {card.title}
                     </h3>
                     {card.subtitle && (
-                      <p className="text-white/90 text-xs sm:text-sm mt-1 drop-shadow">{card.subtitle}</p>
+                      <p className="text-white/90 text-xs sm:text-sm mt-1 drop-shadow">
+                        {card.subtitle}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -121,7 +159,7 @@ const HousesCarousel: React.FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default HousesCarousel
+export default HousesCarousel;
