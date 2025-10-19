@@ -34,15 +34,15 @@ const Navbar = () => {
       >
         {/* ===== Desktop Navbar ===== */}
         <div
-          className={`hidden lg:flex items-center justify-center sm:bg-transparent rounded-full px-4 sm:px-6 transition-all duration-500 ease-in-out`}
+          className={`hidden md:flex items-center justify-center sm:bg-transparent rounded-full px-4 sm:px-6 transition-all duration-500 ease-in-out`}
         >
           {/* Register Button */}
           <a
             href="/register"
-            className="px-5 py-2 sm:px-7 sm:py-3 text-white font-semibold rounded-full transition-all duration-300 hover:scale-105"
+            className="px-5 py-2 sm:px-7 sm:py-3 text-white rounded-full transition-all duration-300 hover:scale-105 text-sm"
             style={{
               backgroundColor: THEME.primary,
-              border: `2px solid ${THEME.accent}`,
+              border: `3px solid ${THEME.accent}`,
             }}
           >
             Register
@@ -53,14 +53,14 @@ const Navbar = () => {
             className="flex items-center mx-4 sm:mx-6 px-4 sm:px-8 py-2 sm:py-3 rounded-full"
             style={{
               backgroundColor: THEME.primary,
-              border: `2px solid ${THEME.accent}`,
+              border: `3px solid ${THEME.accent}`,
             }}
           >
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="px-3 sm:px-5 text-white font-medium hover:text-[#FFF8E7] transition-all duration-200 text-sm sm:text-base"
+                className="px-3 sm:px-5 text-white font-medium hover:text-[#FEFEEA] transition-all duration-200 text-sm"
               >
                 {item.name}
               </a>
@@ -70,13 +70,13 @@ const Navbar = () => {
           {/* Probot Button */}
           <a
             href="/probot"
-            className="px-5 py-2 sm:px-7 sm:py-3 text-white font-semibold rounded-full transition-all duration-300 hover:scale-105"
+            className="px-5 py-2 sm:px-7 sm:py-3 text-white rounded-full transition-all duration-300 hover:scale-105 text-sm"
             style={{
               backgroundColor: THEME.primary,
-              border: `2px solid ${THEME.accent}`,
+              border: `3px solid ${THEME.accent}`,
             }}
           >
-            ProBot
+            PoBot
           </a>
         </div>
 

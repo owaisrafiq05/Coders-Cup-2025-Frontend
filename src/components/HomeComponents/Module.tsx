@@ -1,22 +1,35 @@
 const Module = () => {
   return (
-    <section className="relative bg-[#FFF8E7] w-full py-14 md:py-20 overflow-visible">
+    <section className="relative bg-[#FEFEEA] w-full overflow-visible">
       {/* Background image */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+      {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <img
           src="modules-circle-bg.png"
           alt="modules section decorative background"
           className="w-full max-w-7xl opacity-90 object-contain z-0"
         />
-      </div>
+      </div> */}
+      <div className="absolute hidden sm:flex items-center justify-center opacity-20 w-screen h-full overflow-hidden">
+          <div
+            className="absolute rounded-full border border-[#EA4A4A] w-[1150px] h-[1150px]"
+          ></div>
+
+          <div
+            className="absolute rounded-full border border-[#EA4A4A] opacity-60 w-[850px] h-[850px]"
+          ></div>
+
+          <div
+            className="absolute rounded-full border border-[#EA4A4A] opacity-60 w-[550px] h-[550px]"
+          ></div> 
+        </div>
 
       {/* Foreground content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4">
-        <h2 className="text-[#930000] text-[36px] md:text-[44px] lg:text-[48px] leading-[1] font-black text-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-10 py-14 md:py-20">
+        <h2 className="text-[#930000] text-[36px] md:text-[44px] uppercase lg:text-[48px] leading-[1] font-black text-center">
           Introducing New Modules
         </h2>
 
-        <div className="mt-8 md:mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="mt-8 md:mt-10 bg-[#FEFEEA] sm:px-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="flex justify-center lg:justify-start">
             <img
               src="module-pic.png"
@@ -41,11 +54,9 @@ const Module = () => {
             <div className="mt-6 md:mt-8">
               <a
                 href="#modules"
-                className="inline-flex items-center justify-center px-6 md:px-7 lg:px-8 py-3 md:py-3.5 lg:py-4 text-[#FFF8E7] font-semibold rounded-[40px] transition-all duration-200 hover:scale-[1.02]"
-                style={{
-                  backgroundColor: "#930000",
-                  border: "2px solid #D99413",
-                }}
+                // className="inline-flex items-center justify-center px-6 md:px-7 lg:px-8 py-3 md:py-3.5 lg:py-4 text-[#FEFEEA] font-semibold rounded-[40px] transition-all duration-200 hover:scale-[1.02]"
+                className="inline-flex items-center justify-center rounded-full bg-[#930000] text-[#FEFEEA]
+                           font-semibold sm:text-lg px-10 sm:px-15 py-2.5 sm:py-3 hover:shadow-lg transition-shadow duration-200"
               >
                 Explore Modules
               </a>

@@ -10,7 +10,7 @@ import {
 
 const Footer = () => {
   return (
-    <section className="bg-[#000000] text-[#FFF8E7] w-full overflow-visible">
+    <section className="bg-[#000000] text-[#FEFEEA] w-full overflow-visible">
       {/* Main part */}
       <div className="w-full border-b border-[#ffffff]">
         <div className="w-full max-w-7xl lg:mx-auto px-4 py-14 md:py-20">

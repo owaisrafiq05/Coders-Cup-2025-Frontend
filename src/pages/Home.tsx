@@ -20,7 +20,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="bg-[#FFF8E7] min-h-screen">
+    <div className="bg-[#FEFEEA] caret-transparent min-h-screen w-full overflow-x-hidden">
       <Navbar />
       <Hero />
       <AboutSection />

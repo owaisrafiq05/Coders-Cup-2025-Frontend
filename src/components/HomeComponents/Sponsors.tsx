@@ -2,7 +2,7 @@ const Sponsors = () => {
   return (
     <section className="rounded-t-[50px] bg-[#7E0000] w-full py-1 md:py-2 overflow-visible lg:max-h-[360px]">
       <div className="w-full max-w-7xl mx-auto px-4">
-        <div className="text-[#FFF8E7] w-full py-10 flex flex-col items-center justify-center">
+        <div className="text-[#FEFEEA] w-full py-10 flex flex-col items-center justify-center">
           <h2 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[48px] leading-[1] font-black text-center">
             SPONSORS
           </h2>
@@ -20,7 +20,7 @@ const Sponsors = () => {
               ].map((logo) => (
                 <div
                   key={logo.alt}
-                  className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] md:w-[120px] md:h-[120px] rounded-full bg-[#FFF8E7] flex items-center justify-center shadow-md"
+                  className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] md:w-[120px] md:h-[120px] rounded-full bg-[#FEFEEA] flex items-center justify-center shadow-md"
                   aria-label={`${logo.alt} logo`}
                 >
                   <img

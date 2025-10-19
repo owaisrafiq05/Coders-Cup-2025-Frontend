@@ -45,7 +45,7 @@ const HousesCarousel: React.FC = () => {
   };
 
   return (
-    <section className="w-full bg-[#930000] text-[#FFF8E7] rounded-[32px] py-10 md:py-12">
+    <section className="w-full bg-[#930000] text-[#FEFEEA] rounded-[32px] py-10 md:py-12">
       <div className="max-w-7xl mx-auto px-4">
         {/* Heading */}
         <div className="text-center mb-6 md:mb-8">
@@ -99,7 +99,7 @@ const HousesCarousel: React.FC = () => {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span
                       className={`
-                        text-[#FFF8E7]/95 font-semibold tracking-wide uppercase
+                        text-[#FEFEEA]/95 font-semibold tracking-wide uppercase
                         text-xs sm:text-sm drop-shadow
                         transition-all duration-500 ease-in-out
                         /* Mobile: show rotated text when collapsed */
@@ -151,9 +151,9 @@ const HousesCarousel: React.FC = () => {
         <div className="mt-8 md:mt-10 flex justify-center">
           <a
             href="#"
-            className="rounded-full bg-[#FFF8E7] text-[#930000] font-semibold px-6 py-3 hover:shadow-lg transition-shadow duration-200"
-            style={{ border: "2px solid #D99413" }}
-          >
+             className="inline-flex items-center justify-center rounded-full bg-[#FEFEEA] text-[#930000]
+                           font-semibold sm:text-lg px-10 sm:px-15 py-2.5 sm:py-3 hover:shadow-lg transition-shadow duration-200"
+             >
             Know More…
           </a>
         </div>
