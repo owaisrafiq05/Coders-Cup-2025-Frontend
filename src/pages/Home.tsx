@@ -1,6 +1,7 @@
 import Navbar from '../components/GlobalComponents/Navbar'
 import AboutSection from '../components/HomeComponents/About'
 import Hero from '../components/HomeComponents/Hero'
+import HousesCarousel from '../components/HomeComponents/HousesCarousel'
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
         <Navbar/>
         <Hero/>
         <AboutSection/>
+        <HousesCarousel/>
     </div>
   )
 }
