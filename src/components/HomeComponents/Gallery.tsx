@@ -1,96 +1,72 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
-const Gallery = () => {
+const Gallery = ({ images = [], autoPlayInterval = 5000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Gallery images
-  const images = [
-    "about-img.png",
-    "oogway.png",
-    "module-pic.png",
-    "about-img.png",
-    "oogway.png",
-  ];
-
-  // Auto-play functionality
+  // Detect screen size (mobile vs desktop)
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize(); // run on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Auto-play
+  useEffect(() => {
+    if (images.length === 0) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 4000);
+    }, autoPlayInterval);
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [images.length, autoPlayInterval]);
 
-  // Navigation functions
-  const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
+  if (images.length === 0) return null;
 
-  const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length);
-  };
-
-  // Helper to get image index with offset
-  const getImageIndex = (offset: number): number => {
+  // Helper to loop index
+  const getIndex = (offset: number) => {
     return (currentIndex + offset + images.length) % images.length;
   };
 
+// Responsive positions
+const positions = isMobile
+  ? [
+      { offset: -1, x: -120, scale: 0.8, opacity: 0.5, zIndex: 5, size: "w-[260px] h-[180px]" },
+      { offset: 0,  x: 0,    scale: 1,   opacity: 1,   zIndex: 10, size: "w-[360px] h-[260px]" },
+      { offset: 1,  x: 120,  scale: 0.8, opacity: 0.5, zIndex: 5, size: "w-[260px] h-[180px]" },
+    ]
+  : [
+      { offset: -2, x: -340, scale: 0.7, opacity: 0.3, zIndex: 1, size: "w-[340px] h-[220px]" },
+      { offset: -1, x: -200, scale: 0.85, opacity: 0.6, zIndex: 5, size: "w-[420px] h-[260px]" },
+      { offset: 0,  x: 0,    scale: 1,   opacity: 1,   zIndex: 10, size: "w-[600px] h-[360px]" },
+      { offset: 1,  x: 200,  scale: 0.85, opacity: 0.6, zIndex: 5, size: "w-[420px] h-[260px]" },
+      { offset: 2,  x: 340,  scale: 0.7, opacity: 0.3, zIndex: 1, size: "w-[340px] h-[220px]" },
+    ];
+
+
   return (
-    <section className="relative bg-[#FFF8E7] w-full py-14 md:py-20 overflow-visible">
-      {/* Background image */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-        <img
-          src="modules-circle-bg.png"
-          alt="gallery section decorative background"
-          className="w-full max-w-7xl opacity-90 object-contain"
-        />
+    <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 2xl:px-[6rem] py-6 sm:py-8 md:py-32">
+      {/* Title */}
+      <div className="text-center mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-wide text-[#930000]">
+        GALLERY...
+        </h2>
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4">
-        <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-[#930000] text-[36px] md:text-[44px] lg:text-[48px] leading-[1] font-black">
-            GALLERY...
-          </h2>
-        </div>
-
-        {/* Carousel Container */}
-        <div className="relative w-full flex justify-center items-center overflow-hidden">
-          {/* Main carousel */}
-          <div className="relative w-full max-w-5xl h-[300px] md:h-[400px] flex items-center justify-center">
-            {/* Previous image (left) */}
-            <div className="absolute left-0 w-[200px] md:w-[250px] h-[150px] md:h-[200px] opacity-60 transform -translate-x-4 md:-translate-x-8">
-              <img
-                src={images[getImageIndex(-1)]}
-                alt="Previous gallery image"
-                className="w-full h-full object-cover rounded-2xl shadow-lg"
-              />
-            </div>
-
-            {/* Current image (center) */}
-            <div className="relative z-10 w-[300px] md:w-[400px] lg:w-[500px] h-[200px] md:h-[280px] lg:h-[350px]">
-              <img
-                src={images[currentIndex]}
-                alt={`Gallery image ${currentIndex + 1}`}
-                className="w-full h-full object-cover rounded-2xl shadow-xl"
-              />
-            </div>
-
-            {/* Next image (right) */}
-            <div className="absolute right-0 w-[200px] md:w-[250px] h-[150px] md:h-[200px] opacity-60 transform translate-x-4 md:translate-x-8">
-              <img
-                src={images[getImageIndex(1)]}
-                alt="Next gallery image"
-                className="w-full h-full object-cover rounded-2xl shadow-lg"
-              />
-            </div>
-
-            {/* Navigation arrows */}
+      {/* Navigation Arrows - Mobile Only - Below Heading */}
+      {/* {isMobile && (
+        <div className="flex justify-end mb-[-2.5rem] px-4 md:hidden">
+          <div className="flex space-x-2">
             <button
               onClick={goToPrevious}
-              className="absolute left-4 md:left-8 top-1/2 transform -translate-y-1/2 bg-[#930000] hover:bg-[#7E0000] text-white rounded-full p-2 md:p-3 shadow-lg transition-all duration-200 z-20"
+              className="bg-[#0B466D] hover:bg-[#257fb5] rounded-full p-3 shadow-lg transition-all duration-200"
               aria-label="Previous image"
             >
               <svg
-                className="w-4 h-4 md:w-5 md:h-5"
+                className="w-5 h-5 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -103,14 +79,14 @@ const Gallery = () => {
                 />
               </svg>
             </button>
-
+            
             <button
               onClick={goToNext}
-              className="absolute right-4 md:right-8 top-1/2 transform -translate-y-1/2 bg-[#930000] hover:bg-[#7E0000] text-white rounded-full p-2 md:p-3 shadow-lg transition-all duration-200 z-20"
+              className="bg-[#0B466D] hover:bg-[#257fb5] rounded-full p-3 shadow-lg transition-all duration-200"
               aria-label="Next image"
             >
               <svg
-                className="w-4 h-4 md:w-5 md:h-5"
+                className="w-5 h-5 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -125,24 +101,51 @@ const Gallery = () => {
             </button>
           </div>
         </div>
+      )} */}
 
-        {/* Navigation dots */}
-        <div className="flex justify-center mt-6 md:mt-8 space-x-2">
-          {images.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentIndex
-                  ? "bg-[#930000] scale-110"
-                  : "bg-gray-300 hover:bg-gray-400"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
+      {/* Carousel */}
+      <div className="relative w-full flex justify-center items-center overflow-hidden h-[380px]">
+        {positions.map((pos) => {
+          const imageIndex = getIndex(pos.offset);
+          return (
+            <motion.div
+              key={imageIndex}
+              initial={{ opacity: 0, scale: 0.8, x: 0 }}
+              animate={{
+                x: pos.x,
+                scale: pos.scale,
+                opacity: pos.opacity,
+                zIndex: pos.zIndex,
+              }}
+              transition={{ duration: 0.6 }}
+              className="absolute rounded-3xl overflow-hidden shadow-lg"
+            >
+              <img
+                src={images[imageIndex]}
+                alt={`Slide ${imageIndex + 1}`}
+                className={`object-cover rounded-3xl transition-all duration-500 ${pos.size}`}
+              />
+            </motion.div>
+          );
+        })}
       </div>
-    </section>
+
+      {/* Dots */}
+      <div className="flex justify-center mt-6 space-x-2">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentIndex
+                ? "bg-[#930000] scale-110"
+                : "bg-gray-300 hover:bg-gray-400"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
 

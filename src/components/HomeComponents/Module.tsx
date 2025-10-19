@@ -6,7 +6,7 @@ const Module = () => {
         <img
           src="modules-circle-bg.png"
           alt="modules section decorative background"
-          className="w-full max-w-7xl opacity-90 object-contain"
+          className="w-full max-w-7xl opacity-90 object-contain z-0"
         />
       </div>
 

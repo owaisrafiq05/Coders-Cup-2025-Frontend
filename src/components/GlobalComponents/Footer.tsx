@@ -14,7 +14,7 @@ const Footer = () => {
       {/* Main part */}
       <div className="w-full border-b border-[#ffffff]">
         <div className="w-full max-w-7xl lg:mx-auto px-4 py-14 md:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
             <div className="flex justify-start lg:justify-center">
               <img
                 src="coders-cup-trophy.png"
@@ -24,7 +24,7 @@ const Footer = () => {
             </div>
 
             {/* Description paragraph */}
-            <div className="lg:max-w-[360px]">
+            <div className="lg:max-w-[360px] col-span-2">
               <p className="text-[16px] md:text-[22px] lg:text-[24px] font-medium leading-[1] opacity-95">
                 Coder’s Cup is our FAST NUCES’ annual coding competition,
                 designed to bring together the brightest problem-solvers,
@@ -70,6 +70,7 @@ const Footer = () => {
             </div>
 
             {/* Contacts */}
+            <div>
             <div className="text-left">
               <h3 className="text-[18px] md:text-[20px] lg:text-[22px] font-bold tracking-wider">
                 Contacts
@@ -99,6 +100,21 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
+            <div className="text-left pt-6">
+              <h3 className="text-[18px] md:text-[20px] lg:text-[22px] font-bold tracking-wider">
+                About the Developers
+              </h3>
+              <ul className="mt-4 space-y-4">
+                <li className="flex justify-start gap-3 ">
+                  <a href="https://www.linkedin.com/in/owais-rafiq-639494253/" target="_blank" className="hover:text-[#FFF] transition-colors hover:underline flex items-center gap-2"><Linkedin className="w-5 h-5" /> <p>Owais Rafiq</p></a>
+                </li>
+                <li className="flex justify-start gap-3">
+                  <a href="https://www.linkedin.com/in/mariumnoor29" target="_blank" className="hover:text-[#FFF] transition-colors hover:underline flex items-center gap-2"><Linkedin className="w-5 h-5" /> <p>Marium Noor</p></a>
+                </li>
+              </ul>
+            </div>
+            </div>
+            
           </div>
         </div>
       </div>

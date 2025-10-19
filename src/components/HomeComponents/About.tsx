@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="bg-[#FFF8E7]">
+    <section id="about" className="bg-[#FFF8E7] z-10">
       <div
         className="relative rounded-[24px] sm:rounded-[32px] bg-[#7E0000] text-[#FFF8E7] 
                    overflow-hidden shadow-xl md:min-h-[520px] lg:min-h-[560px] 
