@@ -1,17 +1,25 @@
-import Navbar from '../components/GlobalComponents/Navbar'
-import AboutSection from '../components/HomeComponents/About'
-import Hero from '../components/HomeComponents/Hero'
-import HousesCarousel from '../components/HomeComponents/HousesCarousel'
+import Footer from "../components/GlobalComponents/Footer";
+import Navbar from "../components/GlobalComponents/Navbar";
+import AboutSection from "../components/HomeComponents/About";
+import Gallery from "../components/HomeComponents/Gallery";
+import Hero from "../components/HomeComponents/Hero";
+import HousesCarousel from "../components/HomeComponents/HousesCarousel";
+import Module from "../components/HomeComponents/Module";
+import Sponsors from "../components/HomeComponents/Sponsors";
 
 const Home = () => {
   return (
-    <div className='bg-[#FFF8E7] min-h-screen'>
-        <Navbar/>
-        <Hero/>
-        <AboutSection/>
-        <HousesCarousel/>
+    <div className="bg-[#FFF8E7] min-h-screen">
+      <Navbar />
+      <Hero />
+      <AboutSection />
+      <Module />
+      <HousesCarousel />
+      <Gallery />
+      <Sponsors />
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
