@@ -76,7 +76,7 @@ const Navbar = () => {
               border: `2px solid ${THEME.accent}`,
             }}
           >
-            PoBot
+            ProBot
           </a>
         </div>
 
