@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import ScrollIndicator from "../GlobalComponents/ScrollIndicator";
 
 const Hero = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -141,12 +141,16 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center space-y-2 mt-8 md:mt-12 animate-bounce">
+        <div>
+          <ScrollIndicator />
+        </div>
+
+        {/* <div className="flex flex-col items-center space-y-2 mt-8 md:mt-12 animate-bounce">
           <ChevronDown className="text-[#930000] w-6 h-4 sm:w-8 sm:h-6" />
           <ChevronDown className="text-[#D99413] w-6 h-4 sm:w-8 sm:h-6 -mt-4" />
           <ChevronDown className="text-[#D99413] w-6 h-4 sm:w-8 sm:h-6 -mt-4" />
           <ChevronDown className="text-[#D99413] w-6 h-4 sm:w-8 sm:h-6 -mt-4" />
-        </div>
+        </div> */}
       </div>
     </section>
   );

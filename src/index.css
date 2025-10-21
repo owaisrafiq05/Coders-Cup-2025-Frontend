@@ -1,8 +1,43 @@
 @import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
 
-
-body{
-    font-family: "Outfit", sans-serif;
+body {
+  font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: rgb(173, 172, 172) !important;
+}
+
+/* Custom Swiper navigation styles for mobile */
+@media screen and (max-width: 768px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 20px !important;
+    height: 20px !important;
+    margin-top: -16px !important;
+  }
+
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    font-size: 16px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 16px !important;
+    height: 16px !important;
+    margin-top: -10px !important;
+  }
+
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    font-size: 12px !important;
+  }
 }

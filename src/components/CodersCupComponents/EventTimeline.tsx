@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { Code2, Gavel, Trophy } from "lucide-react"
+import { Code2, Gavel, Trophy } from "lucide-react";
 
 interface TimelineEvent {
-  id: string
-  title: string
-  description: string
-  icon: React.ReactNode
-  position: "left" | "right"
+  id: string;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  position: "left" | "right";
 }
 
 const events: TimelineEvent[] = [
@@ -37,14 +37,25 @@ const events: TimelineEvent[] = [
     icon: <Trophy className="w-6 h-6" />,
     position: "left",
   },
-]
+];
 
 export default function EventTimeline() {
   return (
-    <section className="min-h-screen bg-gradient-to-b from-[#f5f1e8] to-[#ede8df] py-12 px-4 md:py-20">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative min-h-screen bg-[#FEFEFA] py-12 px-4 md:py-20">
+      {/* Background image */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+        <img
+          src="modules-circle-bg.png"
+          alt="timeline section decorative background"
+          className="w-full max-w-7xl opacity-90 object-contain z-0"
+        />
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto">
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-[#930000] mb-16 md:mb-24">EVENT FORMAT</h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-center text-[#930000] mb-16 md:mb-24">
+          EVENT FORMAT
+        </h1>
 
         {/* Timeline Container */}
         <div className="relative">
@@ -74,8 +85,12 @@ export default function EventTimeline() {
                           </div>
                           {/* Content */}
                           <div className="p-6 md:p-8 text-white">
-                            <h3 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">{event.title}</h3>
-                            <p className="text-sm md:text-base leading-relaxed opacity-95">{event.description}</p>
+                            <h3 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">
+                              {event.title}
+                            </h3>
+                            <p className="text-sm md:text-base leading-relaxed opacity-95">
+                              {event.description}
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -113,12 +128,16 @@ export default function EventTimeline() {
                           </div>
                           {/* Content */}
                           <div className="p-6 md:p-8 text-white">
-                            <h3 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">{event.title}</h3>
-                            <p className="text-sm md:text-base leading-relaxed opacity-95">{event.description}</p>
+                            <h3 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">
+                              {event.title}
+                            </h3>
+                            <p className="text-sm md:text-base leading-relaxed opacity-95">
+                              {event.description}
+                            </p>
                           </div>
                         </div>
                       </div>
-                    </> 
+                    </>
                   )}
                 </div>
 
@@ -141,8 +160,12 @@ export default function EventTimeline() {
                       </div>
                       {/* Content */}
                       <div className="p-4 text-white">
-                        <h3 className="text-xl font-bold mb-2">{event.title}</h3>
-                        <p className="text-sm leading-relaxed opacity-95">{event.description}</p>
+                        <h3 className="text-xl font-bold mb-2">
+                          {event.title}
+                        </h3>
+                        <p className="text-sm leading-relaxed opacity-95">
+                          {event.description}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -158,5 +181,5 @@ export default function EventTimeline() {
         </div>
       </div>
     </section>
-  )
+  );
 }
