@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import RegistrationModal from "./RegistrationModal";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 50);
@@ -37,8 +39,8 @@ const Navbar = () => {
           className={`hidden md:flex items-center justify-center sm:bg-transparent rounded-full px-4 sm:px-6 transition-all duration-500 ease-in-out`}
         >
           {/* Register Button */}
-          <a
-            href="/register"
+          <button
+            onClick={() => setIsModalOpen(true)}
             className="px-5 py-2 sm:px-7 sm:py-3 text-white rounded-full transition-all duration-300 hover:scale-105 text-sm"
             style={{
               backgroundColor: THEME.primary,
@@ -46,7 +48,7 @@ const Navbar = () => {
             }}
           >
             Register
-          </a>
+          </button>
 
           {/* Center Nav Links */}
           <div
@@ -146,13 +148,15 @@ const Navbar = () => {
                   className="mt-3 rounded-2xl overflow-hidden border"
                   style={{ borderColor: THEME.primary }}
                 >
-                  <a
-                    href="/register"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block px-4 py-3 text-white border-b border-[#930000]"
+                  <button
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      setIsModalOpen(true);
+                    }}
+                    className="block w-full text-left px-4 py-3 text-white border-b border-[#930000]"
                   >
                     Register
-                  </a>
+                  </button>
                   {navItems.map((item, i) => (
                     <a
                       key={item.name}
@@ -192,6 +196,12 @@ const Navbar = () => {
           </div>
         )}
       </div>
+
+      {/* Registration Modal */}
+      <RegistrationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </nav>
   );
 };

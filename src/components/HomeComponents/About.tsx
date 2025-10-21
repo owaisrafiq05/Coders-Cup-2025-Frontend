@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import RegistrationModal from "../GlobalComponents/RegistrationModal";
 
 const AboutSection: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section id="about" className="bg-[#FEFEEA] z-10">
       <div
@@ -29,13 +32,13 @@ const AboutSection: React.FC = () => {
             </p>
 
             <div className="mt-6 sm:mt-8">
-              <a
-                href="/register"
+              <button
+                onClick={() => setIsModalOpen(true)}
                 className="inline-flex items-center justify-center rounded-full bg-[#FEFEEA] text-[#930000]
                            font-semibold sm:text-lg px-10 sm:px-15 py-2.5 sm:py-3 hover:shadow-lg transition-shadow duration-200"
               >
                 Register Now
-              </a>
+              </button>
             </div>
           </div>
 
@@ -59,6 +62,12 @@ const AboutSection: React.FC = () => {
         <div className="pointer-events-none absolute -top-10 -left-10 w-36 sm:w-40 h-36 sm:h-40 rounded-full bg-[#FEFEEA]/5 blur-2xl" />
         <div className="pointer-events-none absolute -bottom-16 -right-16 w-48 sm:w-56 h-48 sm:h-56 rounded-full bg-[#D99413]/10 blur-3xl" />
       </div>
+
+      {/* Registration Modal */}
+      <RegistrationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 };
