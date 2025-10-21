@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { RollingText } from "./RollingText";
+// import { motion, AnimatePresence } from "framer-motion";
 
 const Hero = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -9,15 +10,15 @@ const Hero = () => {
     minutes: 24,
     seconds: 56,
   });
-  const [titleIndex, setTitleIndex] = useState(0);
-  const titles = ["程式設計師盃杯子的", "Coders Cup"];
+  // const [titleIndex, setTitleIndex] = useState(0);
+  // const titles = ["程式設計師盃杯子的", "Coders Cup"];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTitleIndex((prev) => (prev + 1) % titles.length);
-    }, 3000); // change text every 3 seconds
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setTitleIndex((prev) => (prev + 1) % titles.length);
+  //   }, 3000); // change text every 3 seconds
+  //   return () => clearInterval(interval);
+  // }, []);
   useEffect(() => {
     // Set target date to 11 Nov 2025, 00:00:00
     const targetDate = new Date("2025-11-11T00:00:00");
@@ -69,8 +70,7 @@ const Hero = () => {
 
       {/* Foreground content (now slightly lower) */}
       <div className="pt-30 sm:pt-40 relative z-10 text-center flex flex-col items-center translate-y-6 md:translate-y-10">
-        <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-[#930000] mb-8 md:mb-10">
-          <AnimatePresence mode="wait">
+          {/* <AnimatePresence mode="wait">
             <motion.span
               key={titles[titleIndex]}
               initial={{ opacity: 0, y: 20 }}
@@ -91,9 +91,9 @@ const Hero = () => {
                 </motion.span>
               ))}
             </motion.span>
-          </AnimatePresence>
-        </h1>
-
+          </AnimatePresence> */}
+          <RollingText />
+        
         <div className="flex items-end justify-center gap-2 md:gap-4 text-[#930000]">
           <div className="flex flex-col items-center">
             <span className="text-[10px] md:text-xs lg:text-sm font-semibold uppercase mb-1 tracking-wide">
