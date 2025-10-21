@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Hero = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -8,11 +9,18 @@ const Hero = () => {
     minutes: 24,
     seconds: 56,
   });
+  const [titleIndex, setTitleIndex] = useState(0);
+  const titles = ["程式設計師盃杯子的", "Coders Cup"];
 
   useEffect(() => {
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 1);
-    targetDate.setHours(targetDate.getHours() + 54);
+    const interval = setInterval(() => {
+      setTitleIndex((prev) => (prev + 1) % titles.length);
+    }, 3000); // change text every 3 seconds
+    return () => clearInterval(interval);
+  }, []);
+  useEffect(() => {
+    // Set target date to 11 Nov 2025, 00:00:00
+    const targetDate = new Date("2025-11-11T00:00:00");
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -25,7 +33,9 @@ const Hero = () => {
 
       setTimeLeft({
         days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        hours: Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        ),
         minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
         seconds: Math.floor((distance % (1000 * 60)) / 1000),
       });
@@ -44,17 +54,11 @@ const Hero = () => {
           className="absolute w-full max-w-7xl opacity-100 object-contain pointer-events-none select-none z-0"
         /> */}
         <div className="relative hidden sm:flex items-center justify-center opacity-20 w-screen h-screen overflow-hidden">
-          <div
-            className="absolute rounded-full border border-[#EA4A4A] w-[1150px] h-[1150px]"
-          ></div>
+          <div className="absolute rounded-full border border-[#EA4A4A] w-[1150px] h-[1150px]"></div>
 
-          <div
-            className="absolute rounded-full border border-[#EA4A4A] opacity-60 w-[850px] h-[850px]"
-          ></div>
+          <div className="absolute rounded-full border border-[#EA4A4A] opacity-60 w-[850px] h-[850px]"></div>
 
-          <div
-            className="absolute rounded-full border border-[#EA4A4A] opacity-60 w-[550px] h-[550px]"
-          ></div> 
+          <div className="absolute rounded-full border border-[#EA4A4A] opacity-60 w-[550px] h-[550px]"></div>
         </div>
         <img
           src="hero-bg.png"
@@ -66,36 +70,71 @@ const Hero = () => {
       {/* Foreground content (now slightly lower) */}
       <div className="pt-30 sm:pt-40 relative z-10 text-center flex flex-col items-center translate-y-6 md:translate-y-10">
         <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-[#930000] mb-8 md:mb-10">
-          程式設計師盃杯子的
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={titles[titleIndex]}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.8 }}
+              className="inline-block"
+            >
+              {titles[titleIndex].split("").map((char, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ delay: i * 0.05, duration: 0.3 }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </motion.span>
+          </AnimatePresence>
         </h1>
 
         <div className="flex items-end justify-center gap-2 md:gap-4 text-[#930000]">
           <div className="flex flex-col items-center">
-            <span className="text-[10px] md:text-xs lg:text-sm font-semibold uppercase mb-1 tracking-wide">days</span>
+            <span className="text-[10px] md:text-xs lg:text-sm font-semibold uppercase mb-1 tracking-wide">
+              days
+            </span>
             <span className="text-3xl md:text-4xl lg:text-5xl font-bold leading-none">
               {String(timeLeft.days).padStart(2, "0")}
             </span>
           </div>
-          <span className="text-4xl md:text-6xl lg:text-7xl font-bold leading-none">:</span>
+          <span className="text-4xl md:text-6xl lg:text-7xl font-bold leading-none">
+            :
+          </span>
 
           <div className="flex flex-col items-center">
-            <span className="text-[10px] md:text-xs lg:text-sm font-semibold uppercase mb-1 tracking-wide">hours</span>
+            <span className="text-[10px] md:text-xs lg:text-sm font-semibold uppercase mb-1 tracking-wide">
+              hours
+            </span>
             <span className="text-3xl md:text-4xl lg:text-5xl  font-bold leading-none">
               {String(timeLeft.hours).padStart(2, "0")}
             </span>
           </div>
-          <span className="text-4xl md:text-6xl lg:text-7xl font-bold leading-none">:</span>
+          <span className="text-4xl md:text-6xl lg:text-7xl font-bold leading-none">
+            :
+          </span>
 
           <div className="flex flex-col items-center">
-            <span className="text-[10px] md:text-xs lg:text-sm font-semibold uppercase mb-1 tracking-wide">minutes</span>
+            <span className="text-[10px] md:text-xs lg:text-sm font-semibold uppercase mb-1 tracking-wide">
+              minutes
+            </span>
             <span className="text-3xl md:text-4xl lg:text-5xl font-bold leading-none">
               {String(timeLeft.minutes).padStart(2, "0")}
             </span>
           </div>
-          <span className="text-4xl md:text-6xl lg:text-7xl font-bold leading-none">:</span>
+          <span className="text-4xl md:text-6xl lg:text-7xl font-bold leading-none">
+            :
+          </span>
 
           <div className="flex flex-col items-center">
-            <span className="text-[10px] md:text-xs lg:text-sm font-semibold uppercase mb-1 tracking-wide">seconds</span>
+            <span className="text-[10px] md:text-xs lg:text-sm font-semibold uppercase mb-1 tracking-wide">
+              seconds
+            </span>
             <span className="text-3xl md:text-4xl lg:text-5xl font-bold leading-none">
               {String(timeLeft.seconds).padStart(2, "0")}
             </span>
