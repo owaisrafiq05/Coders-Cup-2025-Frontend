@@ -68,6 +68,14 @@ const Hero = () => {
         />
       </div>
 
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+        <img
+          src="modules-circle-bg.png"
+          alt="timeline section decorative background"
+          className="w-full max-w-7xl opacity-90 object-contain z-0"
+        />
+      </div>
+
       {/* Foreground content (now slightly lower) */}
       <div className="pt-30 sm:pt-40 relative z-10 text-center flex flex-col items-center translate-y-6 md:translate-y-10">
           {/* <AnimatePresence mode="wait">

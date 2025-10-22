@@ -3,6 +3,7 @@ import Navbar from "../components/GlobalComponents/Navbar";
 import Footer from "../components/GlobalComponents/Footer";
 import CodersCupHero from "../components/CodersCupComponents/CodersCupHero";
 import IntroductionCarousel from "../components/CodersCupComponents/IntroductionCarousel";
+import Prizes from "../components/CodersCupComponents/Prizes";
 
 const CodersCup = () => {
   return (
@@ -11,6 +12,7 @@ const CodersCup = () => {
       <CodersCupHero />
       <IntroductionCarousel />
       <EventTimeline />
+      <Prizes/>
       <Footer />
     </div>
   );

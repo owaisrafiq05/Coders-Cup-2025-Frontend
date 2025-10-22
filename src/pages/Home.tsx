@@ -5,6 +5,7 @@ import Gallery from "../components/HomeComponents/Gallery";
 import Hero from "../components/HomeComponents/Hero";
 import HousesCarousel from "../components/HomeComponents/HousesCarousel";
 import Module from "../components/HomeComponents/Module";
+import ModulesSection from "../components/HomeComponents/ModulesSection";
 import Sponsors from "../components/HomeComponents/Sponsors";
 
 const event1 = "event1.jpg";
@@ -26,10 +27,11 @@ const Home = () => {
       <AboutSection />
       <Module />
       <HousesCarousel />
-      <Gallery
+      {/* <Gallery
         images={carouselImages as never[]}
         autoPlayInterval={4000}
-      />
+      /> */}
+      <ModulesSection />
       <Sponsors />
       <Footer />
     </div>

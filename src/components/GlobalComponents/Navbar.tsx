@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import RegistrationModal from "./RegistrationModal";
+import PoBotChatbot from "./PoBotChatbot";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 50);
@@ -69,17 +71,17 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Probot Button */}
-          <a
-            href="/probot"
-            className="px-5 py-2 sm:px-7 sm:py-3 text-white rounded-full transition-all duration-300 hover:scale-105 text-sm"
+          {/* PoBot Button */}
+          <button
+            onClick={() => setIsChatbotOpen(true)}
+            className="px-5 py-2 sm:px-7 sm:py-3 text-white rounded-full transition-all duration-300 hover:scale-105 text-sm flex items-center gap-2"
             style={{
               backgroundColor: THEME.primary,
               border: `3px solid ${THEME.accent}`,
             }}
           >
             PoBot
-          </a>
+          </button>
         </div>
 
         {/* ===== Mobile Navbar ===== */}
@@ -95,13 +97,23 @@ const Navbar = () => {
               </div>
             </a>
 
-            {/* Mobile Toggle */}
-            <button
-              onClick={() => setIsMenuOpen((v) => !v)}
-              className="p-2 rounded-full hover:bg-[#7E0000]/40 transition text-white"
-            >
-              {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
-            </button>
+            <div className="flex items-center gap-2">
+              {/* PoBot Button - Outside hamburger menu */}
+              <button
+                onClick={() => setIsChatbotOpen(true)}
+                className="p-2 rounded-full hover:bg-[#930000]/40 transition text-white"
+              >
+                <MessageCircle size={20} />
+              </button>
+
+              {/* Mobile Toggle */}
+              <button
+                onClick={() => setIsMenuOpen((v) => !v)}
+                className="p-2 rounded-full hover:bg-[#7E0000]/40 transition text-white"
+              >
+                {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -169,13 +181,7 @@ const Navbar = () => {
                       {item.name}
                     </a>
                   ))}
-                  <a
-                    href="/probot"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block px-4 py-3 text-white border-t border-[#930000]"
-                  >
-                    PoBot
-                  </a>
+
                 </nav>
 
                 {/* CTA */}
@@ -201,6 +207,12 @@ const Navbar = () => {
       <RegistrationModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+      />
+
+      {/* PoBot Chatbot */}
+      <PoBotChatbot
+        isOpen={isChatbotOpen}
+        onClose={() => setIsChatbotOpen(false)}
       />
     </nav>
   );

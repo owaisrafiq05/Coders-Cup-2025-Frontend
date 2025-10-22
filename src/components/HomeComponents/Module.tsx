@@ -2,14 +2,14 @@ const Module = () => {
   return (
     <section className="relative bg-[#FEFEEA] w-full overflow-visible">
       {/* Background image */}
-      {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <img
           src="modules-circle-bg.png"
           alt="modules section decorative background"
           className="w-full max-w-7xl opacity-90 object-contain z-0"
         />
-      </div> */}
-      <div className="absolute hidden sm:flex items-center justify-center opacity-20 w-screen h-full overflow-hidden">
+      </div>
+      {/* <div className="absolute hidden sm:flex items-center justify-center opacity-20 w-screen h-full overflow-hidden">
           <div
             className="absolute rounded-full border border-[#EA4A4A] w-[1150px] h-[1150px]"
           ></div>
@@ -21,7 +21,7 @@ const Module = () => {
           <div
             className="absolute rounded-full border border-[#EA4A4A] opacity-60 w-[550px] h-[550px]"
           ></div> 
-        </div>
+        </div> */}
 
       {/* Foreground content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-10 py-14 md:py-20">

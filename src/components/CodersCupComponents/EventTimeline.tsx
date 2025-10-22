@@ -53,38 +53,38 @@ export default function EventTimeline() {
 
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-[#930000] mb-16 md:mb-24">
+        <h1 className="text-4xl md:text-5xl font-black text-center text-[#930000] mb-16 md:mb-24">
           EVENT FORMAT
         </h1>
 
         {/* Timeline Container */}
         <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-1 transform -translate-x-1/2 hidden md:block">
+          {/* Timeline Line - Now visible on mobile too */}
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 transform md:-translate-x-1/2">
             <div className="absolute inset-0 border-l-2 border-dashed border-[#930000]"></div>
           </div>
 
           {/* Events */}
           <div className="space-y-12 md:space-y-20">
-            {events.map((event) => (
+            {events.map((event, index) => (
               <div key={event.id} className="relative">
                 {/* Desktop Layout */}
-                <div className="hidden md:grid md:grid-cols-2 md:gap-8 md:items-center">
+                <div className="hidden md:grid md:grid-cols-2 md:gap-8">
                   {event.position === "left" ? (
                     <>
                       {/* Left Card */}
-                      <div className="pr-8">
-                        <div className="bg-[#930000] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                      <div className="pr-12 mt-2">
+                        <div className="bg-[#930000] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-64 w-full">
                           {/* Background Image Placeholder */}
-                          <div className="h-32 bg-gradient-to-br from-[#a50000] to-[#7a0000] relative overflow-hidden">
+                          {/* <div className="h-32 bg-gradient-to-br from-[#a50000] to-[#7a0000] relative overflow-hidden">
                             <img
                               src="/event-background.jpg"
                               alt="Event background"
                               className="w-full h-full object-cover opacity-30"
                             />
-                          </div>
+                          </div> */}
                           {/* Content */}
-                          <div className="p-6 md:p-8 text-white">
+                          <div className="p-6 md:p-8 text-white h-full flex flex-col justify-center">
                             <h3 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">
                               {event.title}
                             </h3>
@@ -94,11 +94,10 @@ export default function EventTimeline() {
                           </div>
                         </div>
                       </div>
-                      {/* Timeline Icon */}
+                      {/* Timeline Icon - Aligned with card top */}
                       <div className="flex justify-start">
-                        <div className="relative flex items-center">
-                          <div className="absolute -left-12 top-1/2 w-12 h-0.5 bg-[#d4a574] transform -translate-y-1/2"></div>
-                          <div className="w-16 h-16 bg-[#930000] rounded-full flex items-center justify-center text-white shadow-lg border-4 border-[#f5f1e8] relative z-10">
+                        <div className="absolute left-1/2 transform -translate-x-1/2 z-10 top-0">
+                          <div className="w-16 h-16 bg-[#930000] rounded-full flex items-center justify-center text-white shadow-lg border-4 border-[#f5f1e8]">
                             {event.icon}
                           </div>
                         </div>
@@ -106,28 +105,27 @@ export default function EventTimeline() {
                     </>
                   ) : (
                     <>
-                      {/* Timeline Icon */}
+                      {/* Timeline Icon - Aligned with card top */}
                       <div className="flex justify-end">
-                        <div className="relative flex items-center">
-                          <div className="absolute -right-12 top-1/2 w-12 h-0.5 bg-[#d4a574] transform -translate-y-1/2"></div>
-                          <div className="w-16 h-16 bg-[#930000] rounded-full flex items-center justify-center text-white shadow-lg border-4 border-[#f5f1e8] relative z-10">
+                        <div className="absolute left-1/2 transform -translate-x-1/2 z-10 top-0">
+                          <div className="w-16 h-16 bg-[#930000] rounded-full flex items-center justify-center text-white shadow-lg border-4 border-[#f5f1e8]">
                             {event.icon}
                           </div>
                         </div>
                       </div>
                       {/* Right Card */}
-                      <div className="pl-8">
-                        <div className="bg-[#930000] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                      <div className="pl-12 mt-2">
+                        <div className="bg-[#930000] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-64 w-full">
                           {/* Background Image Placeholder */}
-                          <div className="h-32 bg-gradient-to-br from-[#a50000] to-[#7a0000] relative overflow-hidden">
+                          {/* <div className="h-32 bg-gradient-to-br from-[#a50000] to-[#7a0000] relative overflow-hidden">
                             <img
                               src="/event-background.jpg"
                               alt="Event background"
                               className="w-full h-full object-cover opacity-30"
                             />
-                          </div>
+                          </div> */}
                           {/* Content */}
-                          <div className="p-6 md:p-8 text-white">
+                          <div className="p-6 md:p-8 text-white h-full flex flex-col justify-center">
                             <h3 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">
                               {event.title}
                             </h3>
@@ -142,24 +140,26 @@ export default function EventTimeline() {
                 </div>
 
                 {/* Mobile Layout */}
-                <div className="md:hidden flex items-start gap-4">
-                  <div className="flex-shrink-0">
+                <div className="md:hidden relative">
+                  {/* Timeline Icon - Aligned with card top for mobile */}
+                  <div className="absolute left-6 transform -translate-x-1/2 z-10 top-0">
                     <div className="w-12 h-12 bg-[#930000] rounded-full flex items-center justify-center text-white shadow-lg border-2 border-[#f5f1e8]">
                       {event.icon}
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <div className="bg-[#930000] rounded-2xl overflow-hidden shadow-lg">
+                  {/* Card positioned to the right of timeline */}
+                  <div className="ml-16">
+                    <div className="bg-[#930000] rounded-2xl overflow-hidden shadow-lg h-48 w-full">
                       {/* Background Image Placeholder */}
-                      <div className="h-24 bg-gradient-to-br from-[#a50000] to-[#7a0000] relative overflow-hidden">
+                      {/* <div className="h-24 bg-gradient-to-br from-[#a50000] to-[#7a0000] relative overflow-hidden">
                         <img
                           src="/event-background.jpg"
                           alt="Event background"
                           className="w-full h-full object-cover opacity-30"
                         />
-                      </div>
+                      </div> */}
                       {/* Content */}
-                      <div className="p-4 text-white">
+                      <div className="p-4 text-white h-full flex flex-col justify-center">
                         <h3 className="text-xl font-bold mb-2">
                           {event.title}
                         </h3>
@@ -174,9 +174,11 @@ export default function EventTimeline() {
             ))}
           </div>
 
-          {/* Bottom Timeline Dot */}
-          <div className="hidden md:flex justify-center mt-12">
-            <div className="w-4 h-4 bg-[#930000] rounded-full shadow-lg border-2 border-[#f5f1e8]"></div>
+          {/* Bottom Timeline Dot - Positioned at the end of timeline */}
+          <div className="flex justify-center mt-8">
+            <div className="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-10">
+              <div className="w-4 h-4 bg-[#930000] rounded-full shadow-lg border-2 border-[#f5f1e8]"></div>
+            </div>
           </div>
         </div>
       </div>
