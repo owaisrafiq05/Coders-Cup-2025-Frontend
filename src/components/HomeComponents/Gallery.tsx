@@ -48,7 +48,7 @@ const positions = isMobile
 
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 2xl:px-[6rem] py-6 sm:py-8 md:py-32">
+    <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 2xl:px-[6rem] py-8 md:py-32">
       {/* Title */}
       <div className="text-center mb-4">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-wide text-[#930000]">
@@ -104,7 +104,7 @@ const positions = isMobile
       )} */}
 
       {/* Carousel */}
-      <div className="relative w-full flex justify-center items-center overflow-hidden h-[380px]">
+      <div className="relative w-full flex justify-center items-center overflow-hidden h-[280px] md:h-[380px]">
         {positions.map((pos) => {
           const imageIndex = getIndex(pos.offset);
           return (

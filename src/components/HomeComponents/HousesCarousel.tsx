@@ -13,27 +13,27 @@ type HouseItem = {
 const items: HouseItem[] = [
   {
     id: "po",
-    title: "Po",
+    title: "Po Panda",
     subtitle: "The Unpredictable Force",
-    image: "po.jpg",
+    image: "/po.jpg",
   },
   {
     id: "oogway",
     title: "Oogway",
     subtitle: "Ancient Wisdom",
-    image: "oogway.png",
+    image: "/oogway.png",
   },
   {
     id: "tai",
     title: "Tai Lung",
     subtitle: "Relentless Power",
-    image: "tai.png",
+    image: "/tai.png",
   },
   {
     id: "mantis",
     title: "Mantis",
     subtitle: "Precision & Stings",
-    image: "shen.png",
+    image: "/shen.png",
   },
 ];
 
@@ -42,6 +42,9 @@ const HousesCarousel: React.FC = () => {
 
   const handleCardClick = (id: string) => {
     setExpandedId(expandedId === id ? null : id);
+  };
+  const handleMouseEnter = (id: string) => {
+    setExpandedId(id);
   };
 
   return (
@@ -61,9 +64,10 @@ const HousesCarousel: React.FC = () => {
           <div className="w-full flex justify-center md:justify-center">
             <div
               className="
-                flex gap-2 sm:gap-3 md:gap-4
-                h-[260px] sm:h-[340px] md:h-[380px] lg:h-[420px]
-                overflow-x-auto md:overflow-x-visible snap-x md:snap-none
+                flex flex-col md:flex-row gap-2 sm:gap-3 md:gap-4
+                h-auto max-h-[600px] md:h-[380px] lg:h-[420px]
+                overflow-y-auto md:overflow-y-visible md:overflow-x-auto 
+                snap-y md:snap-x snap-mandatory
                 md:justify-center
                 pb-2 md:pb-0
               "
@@ -71,16 +75,32 @@ const HousesCarousel: React.FC = () => {
               {items.map((card) => (
                 <div
                   key={card.id}
-                  onClick={() => handleCardClick(card.id)}
+                  onClick={() => {
+                    // only trigger on click if the device supports touch
+                    if ("ontouchstart" in window) handleCardClick(card.id);
+                  }}
+                  onMouseEnter={() => {
+                    // only trigger on hover if the device does NOT support touch
+                    if (!("ontouchstart" in window)) handleMouseEnter(card.id);
+                  }} 
                   className={`
                     group/card relative rounded-2xl overflow-hidden cursor-pointer border-2
                     border-[#D99413]/60 bg-black/10 snap-start flex-shrink-0
                     transition-all duration-500 ease-in-out
-                    /* Mobile: narrow by default, expand on click */
-                    basis-12 sm:basis-14 md:basis-20 lg:basis-24
+                    min-w-[100px] min-h-[96px]
+                    /* Mobile (Vertical): set height instead of width */
+                    w-full h-20 sm:h-28 
                     ${
                       expandedId === card.id
-                        ? "basis-40 sm:basis-48 md:basis-64 lg:basis-80"
+                        ? "h-48 sm:h-56"
+                        : ""
+                    }
+                    /* Medium/Desktop (Horizontal): set width instead of height */
+                    md:w-auto md:h-full
+                    md:basis-20 lg:basis-24
+                    ${
+                      expandedId === card.id
+                        ? "md:basis-64 lg:basis-80"
                         : ""
                     }
                     /* Desktop: expand on hover */
@@ -88,7 +108,6 @@ const HousesCarousel: React.FC = () => {
                     /* Added smooth scale animation */
                     hover:scale-105 md:hover:scale-100
                   `}
-                  style={{ minWidth: 48 }}
                 >
                   <img
                     src={card.image || "/placeholder.svg"}
@@ -102,11 +121,12 @@ const HousesCarousel: React.FC = () => {
                         text-[#FEFEEA]/95 font-semibold tracking-wide uppercase
                         text-xs sm:text-sm drop-shadow
                         transition-all duration-500 ease-in-out
-                        /* Mobile: show rotated text when collapsed */
+                        /* Mobile: show horizontal text when collapsed (no rotation) */
+                        /* Medium screens and up: rotate text when collapsed */
                         ${
                           expandedId === card.id
-                            ? "opacity-0 rotate-0"
-                            : "opacity-100 -rotate-90"
+                            ? "opacity-0 md:rotate-0"
+                            : "opacity-100 md:-rotate-90"
                         }
                         /* Desktop: hide on hover */
                         md:group-hover/card:opacity-0 md:group-hover/card:rotate-0
@@ -128,8 +148,8 @@ const HousesCarousel: React.FC = () => {
                           : "opacity-0 translate-y-4"
                       }
                       /* Desktop: show on hover */
-                      md:group-hover/card:opacity-100 md:group-hover/card:translate-y-0
-                      md:opacity-0 md:translate-y-4
+                      lg:group-hover/card:opacity-100 lg:group-hover/card:translate-y-0
+                      ${expandedId === card.id ? "lg:opacity-100 lg:translate-y-0" : "lg:opacity-0 lg:translate-y-4"}
                     `}
                   >
                     <h3 className="text-white text-base sm:text-lg md:text-xl font-semibold drop-shadow">

@@ -25,7 +25,7 @@ const Module = () => {
 
       {/* Foreground content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-10 py-14 md:py-20">
-        <h2 className="text-[#930000] text-[36px] md:text-[44px] uppercase lg:text-[48px] leading-[1] font-black text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-wide text-[#930000] uppercase leading-[1] text-center">
           Introducing New Modules
         </h2>
 

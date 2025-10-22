@@ -91,7 +91,7 @@ const Footer = () => {
                     href="mailto:acmcoderscup@gmail.com"
                     className="hover:text-[#FFF] transition-colors"
                   >
-                    acmcoderscup@gmail.com
+                    khi.acm@nu.edu.pk
                   </a>
                 </li>
                 <li className="flex justify-start gap-3">

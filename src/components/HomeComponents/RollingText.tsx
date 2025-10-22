@@ -1,6 +1,6 @@
 export const RollingText = () => {
   return (
-    <h1 className="text-3xl md:text-6xl font-semibold text-[#930000] mb-8 md:mb-10 flex h-9 md:h-16 overflow-hidden">
+    <h1 className="text-3xl md:text-6xl font-bold text-[#930000] mb-8 md:mb-10 flex h-9 md:h-16 overflow-hidden">
       {/* 1st columne */}
       <div className="flex flex-col items-center" style={{ animation: "moveUp200 4s ease-in-out infinite alternate", animationDelay: "0.3s" }}>
         <span className="leading-[40px] md:leading-[70px]">程</span>

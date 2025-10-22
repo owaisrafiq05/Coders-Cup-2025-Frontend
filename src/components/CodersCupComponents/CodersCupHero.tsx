@@ -2,7 +2,7 @@ import ScrollIndicator from "../GlobalComponents/ScrollIndicator";
 
 const CodersCupHero = () => {
   return (
-    <section className="w-full bg-[#FEFEFE] font-outfit">
+    <section className="w-full bg-[#FEFEEA] font-outfit">
       <div className="mx-auto lg:max-w-7xl flex flex-col justify-center items-center gap-14">
         <img
           src="coderscup-hero.png"

@@ -2,15 +2,19 @@ const Sponsors = () => {
   return (
     <section className="rounded-t-[50px] bg-[#7E0000] w-full py-1 md:py-2 overflow-visible lg:max-h-[360px]">
       <div className="w-full max-w-7xl mx-auto px-4">
-        <div className="text-[#FEFEEA] w-full py-10 flex flex-col items-center justify-center">
-          <h2 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[48px] leading-[1] font-black text-center">
-            SPONSORS
+        <div className="text-[#FEFEEA] py-4 px-10 text-center w-full flex flex-col gap-4 items-center justify-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide">
+            In Collaboration With Tekno Fest Pakistan
           </h2>
+            <img src="teknofest.png" alt="" className="h-20 sm:h-30 md:h-40" />
+          {/* <div className="flex items-center justify-center gap-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl tracking-wide">Tekno Fest Pakistan</h2>
+          </div> */}
 
-          <div className="px-4 sm:px-6 lg:px-10 py-8 lg:py-10">
+          {/* <div className="px-4 sm:px-6 lg:px-10 py-8 lg:py-10">
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12">
-              
-              {/* Reusable logo circle */}
+
+              Reusable logo circle
               {[
                 { src: "toyota-logo.png", alt: "Toyota" },
                 { src: "suzuki-logo.png", alt: "Suzuki" },
@@ -30,9 +34,9 @@ const Sponsors = () => {
                   />
                 </div>
               ))}
-              
+
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

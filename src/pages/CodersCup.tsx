@@ -6,7 +6,7 @@ import IntroductionCarousel from "../components/CodersCupComponents/Introduction
 
 const CodersCup = () => {
   return (
-    <div>
+    <div className="bg-[#FEFEEA] caret-transparent">
       <Navbar />
       <CodersCupHero />
       <IntroductionCarousel />
