@@ -117,10 +117,10 @@ const Footer = () => {
                 </h3>
                 <ul className="mt-3 sm:mt-4 space-y-2 sm:space-y-4">
                   <li className="flex justify-start gap-3 ">
-                    <a href="https://www.linkedin.com/in/arham-alvi-62068b1bb/" target="_blank" className="hover:text-[#FFF] transition-colors hover:underline flex items-center gap-2"><LinkedInIcon className="w-5 h-5" /> <p>Arham Alvi</p></a>
+                    <a href="https://www.linkedin.com/in/owais-rafiq-639494253/" target="_blank" className="hover:text-[#FFF] transition-colors hover:underline flex items-center gap-2"><LinkedInIcon className="w-5 h-5" /> <p>Owais Rafiq</p></a>
                   </li>
                   <li className="flex justify-start gap-3 ">
-                    <a href="https://www.linkedin.com/in/owais-rafiq-639494253/" target="_blank" className="hover:text-[#FFF] transition-colors hover:underline flex items-center gap-2"><LinkedInIcon className="w-5 h-5" /> <p>Owais Rafiq</p></a>
+                    <a href="https://www.linkedin.com/in/arham-alvi-62068b1bb/" target="_blank" className="hover:text-[#FFF] transition-colors hover:underline flex items-center gap-2"><LinkedInIcon className="w-5 h-5" /> <p>Arham Alvi</p></a>
                   </li>
                   <li className="flex justify-start gap-3">
                     <a href="https://www.linkedin.com/in/mariumnoor29" target="_blank" className="hover:text-[#FFF] transition-colors hover:underline flex items-center gap-2"><LinkedInIcon className="w-5 h-5" /> <p>Marium Noor</p></a>
