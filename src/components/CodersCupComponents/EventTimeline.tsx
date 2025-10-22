@@ -41,21 +41,28 @@ const events: TimelineEvent[] = [
 
 export default function EventTimeline() {
   return (
-    <section className="relative min-h-screen bg-[#FEFEFA] py-12 px-4 md:py-20">
+    <section className="relative min-h-screen px-4">
       {/* Background image */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-        <img
-          src="modules-circle-bg.png"
-          alt="timeline section decorative background"
-          className="w-full max-w-7xl opacity-90 object-contain z-0"
-        />
+      <div className="absolute hidden sm:flex items-center justify-center opacity-30 w-full h-full overflow-hidden">
+        <div
+          className="absolute rounded-full border border-[#EA4A4A] w-[1150px] h-[1150px]"
+        ></div>
+
+        <div
+          className="absolute rounded-full border border-[#EA4A4A] opacity-60 w-[850px] h-[850px]"
+        ></div>
+
+        <div
+          className="absolute rounded-full border border-[#EA4A4A] opacity-60 w-[550px] h-[550px]"
+        ></div>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto">
+      <div className="relative z-10 max-w-6xl mx-auto py-12  md:py-20">
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl font-black text-center text-[#930000] mb-16 md:mb-24">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-wide text-[#930000] uppercase leading-[1] text-center mb-16 md:mb-24">
           EVENT FORMAT
-        </h1>
+        </h2>
+
 
         {/* Timeline Container */}
         <div className="relative">

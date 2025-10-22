@@ -7,7 +7,7 @@ import Prizes from "../components/CodersCupComponents/Prizes";
 
 const CodersCup = () => {
   return (
-    <div className="bg-[#FEFEEA] caret-transparent">
+    <div className="bg-[#FEFEEA] caret-transparent overflow-x-clip">
       <Navbar />
       <CodersCupHero />
       <IntroductionCarousel />

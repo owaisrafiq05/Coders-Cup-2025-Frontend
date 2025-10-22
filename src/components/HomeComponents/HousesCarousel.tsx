@@ -46,9 +46,10 @@ const HousesCarousel: React.FC = () => {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{
-        __html: `
-          @media (min-width: 370px) {
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          @media (min-width: 450px) {
             .very-small-screen {
               display: none !important;
             }
@@ -56,7 +57,7 @@ const HousesCarousel: React.FC = () => {
               display: flex !important;
             }
           }
-          @media (max-width: 369px) {
+          @media (max-width: 449px) {
             .very-small-screen {
               display: block !important;
             }
@@ -64,8 +65,10 @@ const HousesCarousel: React.FC = () => {
               display: none !important;
             }
           }
-        `
-      }} />
+        `,
+        }}
+      />
+
       <section className="w-full bg-[#930000] text-[#FEFEEA] rounded-[32px] py-10 md:py-12">
         <div className="max-w-7xl mx-auto px-4">
           {/* Heading */}

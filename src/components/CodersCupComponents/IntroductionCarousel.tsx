@@ -18,7 +18,7 @@ const IntroductionCarousel = () => {
         slidesPerView={1}
         loop={true}
         autoplay={{
-          delay: 3000,
+          delay: 2500,
           disableOnInteraction: false,
         }}
         className="w-full"
