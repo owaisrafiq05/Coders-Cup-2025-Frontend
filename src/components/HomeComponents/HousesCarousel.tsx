@@ -43,9 +43,6 @@ const HousesCarousel: React.FC = () => {
   const handleCardClick = (id: string) => {
     setExpandedId(expandedId === id ? null : id);
   };
-  const handleMouseEnter = (id: string) => {
-    setExpandedId(id);
-  };
 
   return (
     <>

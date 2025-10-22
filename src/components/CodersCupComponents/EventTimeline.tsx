@@ -66,7 +66,7 @@ export default function EventTimeline() {
 
           {/* Events */}
           <div className="space-y-12 md:space-y-20">
-            {events.map((event, index) => (
+            {events.map((event) => (
               <div key={event.id} className="relative">
                 {/* Desktop Layout */}
                 <div className="hidden md:grid md:grid-cols-2 md:gap-8">
