@@ -1,5 +1,5 @@
 import EventTimeline from "../components/CodersCupComponents/EventTimeline";
-import Navbar from "../components/GlobalComponents/Navbar";
+import Navbar from "../components/GlobalComponents/Navbar.tsx";
 import Footer from "../components/GlobalComponents/Footer";
 import CodersCupHero from "../components/CodersCupComponents/CodersCupHero";
 import IntroductionCarousel from "../components/CodersCupComponents/IntroductionCarousel";

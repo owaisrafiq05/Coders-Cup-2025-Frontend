@@ -34,7 +34,7 @@ const AboutSection: React.FC = () => {
             <div className="mt-6 sm:mt-8">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="inline-flex items-center justify-center rounded-full bg-[#FEFEEA] text-[#930000]
+                className="inline-flex items-center cursor-pointer justify-center rounded-full bg-[#FEFEEA] text-[#930000]
                            font-semibold sm:text-lg px-10 sm:px-15 py-2.5 sm:py-3 hover:shadow-lg transition-shadow duration-200"
               >
                 Register Now

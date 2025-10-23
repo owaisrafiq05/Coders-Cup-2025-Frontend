@@ -1,9 +1,9 @@
 import Footer from "../components/GlobalComponents/Footer";
-import Navbar from "../components/GlobalComponents/Navbar";
+import Navbar from "../components/GlobalComponents/Navbar.tsx";
 import AboutSection from "../components/HomeComponents/About";
 import Hero from "../components/HomeComponents/Hero";
 import HousesCarousel from "../components/HomeComponents/HousesCarousel";
-import Module from "../components/HomeComponents/Module";
+import Module from "../components/HomeComponents/Module.tsx";
 import ModulesSection from "../components/HomeComponents/ModulesSection";
 import Sponsors from "../components/HomeComponents/Sponsors";
 

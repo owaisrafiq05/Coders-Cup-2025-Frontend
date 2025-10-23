@@ -149,7 +149,13 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
                     {/* Footer */}
                     <div className="mt-3 ">
-                        <img src="fyltr.png" className="w-30 sm:w-40 mx-auto" alt="Powered by Fyltr" />
+                        <a href="https://www.fyltr.co/" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src="fyltr.png"
+                                className="w-30 cursor-pointer sm:w-40 mx-auto"
+                                alt="Powered by Fyltr"
+                            />
+                        </a>
 
                         <p
                             className="text-center text-xs opacity-60 mt-2"

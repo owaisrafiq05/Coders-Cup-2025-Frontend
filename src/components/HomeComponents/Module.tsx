@@ -1,3 +1,5 @@
+import { HashLink } from "react-router-hash-link";
+
 const Module = () => {
   return (
     <section className="relative bg-[#FEFEEA] w-full overflow-visible">
@@ -9,19 +11,19 @@ const Module = () => {
           className="w-full max-w-7xl opacity-90 object-contain z-0"
         />
       </div> */}
-        <div className="absolute hidden sm:flex items-center justify-center opacity-30 w-screen h-full overflow-hidden">
-          <div
-            className="absolute rounded-full border border-[#EA4A4A] w-[1150px] h-[1150px]"
-          ></div>
+      <div className="absolute hidden sm:flex items-center justify-center opacity-30 w-screen h-full overflow-hidden">
+        <div
+          className="absolute rounded-full border border-[#EA4A4A] w-[1150px] h-[1150px]"
+        ></div>
 
-          <div
-            className="absolute rounded-full border border-[#EA4A4A] opacity-60 w-[850px] h-[850px]"
-          ></div>
+        <div
+          className="absolute rounded-full border border-[#EA4A4A] opacity-60 w-[850px] h-[850px]"
+        ></div>
 
-          <div
-            className="absolute rounded-full border border-[#EA4A4A] opacity-60 w-[550px] h-[550px]"
-          ></div>
-        </div>
+        <div
+          className="absolute rounded-full border border-[#EA4A4A] opacity-60 w-[550px] h-[550px]"
+        ></div>
+      </div>
 
       {/* Foreground content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-10 py-14 md:py-20">
@@ -52,14 +54,21 @@ const Module = () => {
             </p>
 
             <div className="mt-6 md:mt-8">
-              <a
+              <HashLink
+                className="inline-flex items-center justify-center rounded-full bg-[#930000] text-[#FEFEEA]
+                           font-semibold sm:text-lg px-10 sm:px-15 py-2.5 sm:py-3 hover:shadow-lg transition-shadow duration-200"
+
+                smooth to="#modules">
+                Explore Modules
+              </HashLink>
+              {/* <a
                 href="#modules"
                 // className="inline-flex items-center justify-center px-6 md:px-7 lg:px-8 py-3 md:py-3.5 lg:py-4 text-[#FEFEEA] font-semibold rounded-[40px] transition-all duration-200 hover:scale-[1.02]"
                 className="inline-flex items-center justify-center rounded-full bg-[#930000] text-[#FEFEEA]
                            font-semibold sm:text-lg px-10 sm:px-15 py-2.5 sm:py-3 hover:shadow-lg transition-shadow duration-200"
               >
                 Explore Modules
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

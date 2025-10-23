@@ -48,7 +48,7 @@ const modulesData: ModuleData[] = [
 
 const ModulesSection: React.FC = () => {
   return (
-    <section className="w-full bg-[#FEFEEA] relative overflow-hidden">
+    <section  id="modules" className="w-full bg-[#FEFEEA] relative overflow-hidden">
       <div className="absolute hidden sm:flex items-center justify-center opacity-30 w-screen h-full overflow-hidden">
           <div
             className="absolute rounded-full border border-[#EA4A4A] w-[1450px] h-[1450px]"

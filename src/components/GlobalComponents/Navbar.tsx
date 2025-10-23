@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
+import { HashLink } from "react-router-hash-link";
 import RegistrationModal from "./RegistrationModal";
 import PoBotChatbot from "./PoBotChatbot";
 
@@ -17,9 +18,9 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Coder’s Cup", href: "/coders-cup" },
-    { name: "Modules", href: "/modules" },
-    { name: "Sponsors", href: "/sponsors" },
+    { name: "Coder's Cup", href: "/coders-cup" },
+    // { name: "Modules", href: "/modules" },
+    // { name: "Sponsors", href: "/sponsors" },
   ];
 
   const THEME = {
@@ -32,9 +33,8 @@ const Navbar = () => {
   return (
     <nav className="w-full px-4 pt-4 pb-0 font-urbanist sticky top-0 z-50">
       <div
-        className={`mx-auto transition-all duration-500 ease-in-out ${
-          isScrolled ? "max-w-6xl" : "max-w-7xl"
-        }`}
+        className={`mx-auto transition-all duration-500 ease-in-out ${isScrolled ? "max-w-6xl" : "max-w-7xl"
+          }`}
       >
         {/* ===== Desktop Navbar ===== */}
         <div
@@ -43,7 +43,7 @@ const Navbar = () => {
           {/* Register Button */}
           <button
             onClick={() => setIsModalOpen(true)}
-            className="px-5 py-2 sm:px-7 sm:py-3 text-white rounded-full transition-all duration-300 hover:scale-105 text-sm"
+            className="px-5 py-2 sm:px-7 sm:py-3 cursor-pointer text-white rounded-full transition-all duration-300 hover:scale-105 text-sm"
             style={{
               backgroundColor: THEME.primary,
               border: `3px solid ${THEME.accent}`,
@@ -69,12 +69,18 @@ const Navbar = () => {
                 {item.name}
               </a>
             ))}
+            <HashLink
+              className="px-3 sm:px-5 text-white font-medium hover:text-[#FEFEEA] transition-all duration-200 text-sm"
+              smooth to="/#modules"
+            >
+              Modules
+            </HashLink>
           </div>
 
           {/* PoBot Button */}
           <button
             onClick={() => setIsChatbotOpen(true)}
-            className="px-5 py-2 sm:px-7 sm:py-3 text-white rounded-full transition-all duration-300 hover:scale-105 text-sm flex items-center gap-2"
+            className="px-5 py-2 sm:px-7 sm:py-3 cursor-pointer text-white rounded-full transition-all duration-300 hover:scale-105 text-sm flex items-center gap-2"
             style={{
               backgroundColor: THEME.primary,
               border: `3px solid ${THEME.accent}`,
@@ -174,18 +180,23 @@ const Navbar = () => {
                       key={item.name}
                       href={item.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className={`block px-4 py-3 text-white ${
-                        i !== navItems.length - 1 ? "border-b border-[#930000]" : ""
-                      }`}
+                      // className={`block px-4 py-3 text-white ${i !== navItems.length - 1 ? "border-b border-[#930000]" : ""}`}
+                      className={`block px-4 py-3 text-white`}
                     >
                       {item.name}
                     </a>
                   ))}
-
+                  <HashLink
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block px-4 py-3 text-white border-b border-[#930000]`}
+                    smooth to="/#modules"
+                  >
+                    Modules
+                  </HashLink>
                 </nav>
 
                 {/* CTA */}
-                <a
+                {/* <a
                   href="/contact-us"
                   onClick={() => setIsMenuOpen(false)}
                   className="mt-4 block w-full text-center rounded-full font-semibold py-3 shadow-md hover:shadow-lg transition"
@@ -196,7 +207,7 @@ const Navbar = () => {
                   }}
                 >
                   Contact Us
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

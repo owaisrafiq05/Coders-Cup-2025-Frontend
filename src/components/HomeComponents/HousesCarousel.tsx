@@ -30,9 +30,9 @@ const items: HouseItem[] = [
     image: "/tai.png",
   },
   {
-    id: "mantis",
-    title: "Mantis",
-    subtitle: "Precision & Stings",
+    id: "shen",
+    title: "Lord Shen",
+    subtitle: "Sharp Mind, Sharper Blades",
     image: "/shen.png",
   },
 ];
@@ -43,6 +43,9 @@ const HousesCarousel: React.FC = () => {
   const handleCardClick = (id: string) => {
     setExpandedId(expandedId === id ? null : id);
   };
+  const handleCardEnter = (id: string) => {
+    setExpandedId(id);
+  }
 
   return (
     <>
@@ -89,7 +92,14 @@ const HousesCarousel: React.FC = () => {
                   {items.map((card) => (
                     <div
                       key={card.id}
-                      onClick={() => handleCardClick(card.id)}
+                      onClick={() => {
+                        // only trigger on click if the device supports touch
+                        if ("ontouchstart" in window) handleCardClick(card.id);
+                      }}
+                      onMouseEnter={() => {
+                        // only trigger on hover if the device does NOT support touch
+                        if (!("ontouchstart" in window)) handleCardEnter(card.id);
+                      }}
                       className={`
                         group/card relative rounded-2xl overflow-hidden cursor-pointer border-2
                         border-[#D99413]/60 bg-black/10
@@ -156,7 +166,14 @@ const HousesCarousel: React.FC = () => {
                 {items.map((card) => (
                   <div
                     key={card.id}
-                    onClick={() => handleCardClick(card.id)}
+                    onClick={() => {
+                      // only trigger on click if the device supports touch
+                      if ("ontouchstart" in window) handleCardClick(card.id);
+                    }}
+                    onMouseEnter={() => {
+                      // only trigger on hover if the device does NOT support touch
+                      if (!("ontouchstart" in window)) handleCardEnter(card.id);
+                    }}
                     className={`
                       group/card relative rounded-2xl overflow-hidden cursor-pointer border-2
                       border-[#D99413]/60 bg-black/10 snap-start flex-shrink-0
@@ -204,7 +221,7 @@ const HousesCarousel: React.FC = () => {
                           : "opacity-0 translate-y-4"
                         }
                         md:group-hover/card:opacity-100 md:group-hover/card:translate-y-0
-                        md:opacity-0 md:translate-y-4
+                        ${expandedId === card.id ? "md:opacity-100 md:translate-y-0" : "md:opacity-0 md:translate-y-4"}
                       `}
                     >
                       <h3 className="text-white text-base sm:text-lg md:text-xl font-semibold drop-shadow">
@@ -225,7 +242,7 @@ const HousesCarousel: React.FC = () => {
           {/* CTA */}
           <div className="mt-8 md:mt-10 flex justify-center">
             <a
-              href="#"
+              href="/coders-cup"
               className="inline-flex items-center justify-center rounded-full bg-[#FEFEEA] text-[#930000]
                          font-semibold sm:text-lg px-10 sm:px-15 py-2.5 sm:py-3 hover:shadow-lg transition-shadow duration-200"
             >
