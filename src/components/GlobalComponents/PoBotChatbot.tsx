@@ -1,13 +1,15 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { X, Send } from "lucide-react";
+import { X, Send, AlertCircle } from "lucide-react";
+import { chatbotApi } from "../../services/chatbotApi";
 
 interface Message {
   id: string;
   text: string;
   isUser: boolean;
   timestamp: Date;
+  isError?: boolean;
 }
 
 interface PoBotChatbotProps {
@@ -26,6 +28,7 @@ const PoBotChatbot = ({ isOpen, onClose }: PoBotChatbotProps) => {
   ]);
   const [inputMessage, setInputMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [isApiConnected, setIsApiConnected] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -43,39 +46,14 @@ const PoBotChatbot = ({ isOpen, onClose }: PoBotChatbotProps) => {
     }
   }, [isOpen]);
 
-  const getBotResponse = (userMessage: string): string => {
-    const message = userMessage.toLowerCase();
-    
-    if (message.includes("coder") || message.includes("cup") || message.includes("competition")) {
-      return "Sure! Coder's Cup is our FAST NUCES' annual coding competition, designed to bring together the brightest problem-solvers, developers, and tech enthusiasts under one banner. Each year, the event challenges participants to push their creative and analytical limits through a series of programming and algorithmic challenges.";
-    }
-    
-    if (message.includes("format") || message.includes("how") || message.includes("work")) {
-      return "The competition follows a unique 3-stage format: 1) Batch Qualifiers - where FASTians compete in coding challenges, 2) The Auction War - where House Captains bid on qualified participants, and 3) The Grand Finale - where house teams compete for ultimate glory!";
-    }
-    
-    if (message.includes("register") || message.includes("participate") || message.includes("join")) {
-      return "To participate in Coder's Cup, you need to be a FAST NUCES student. Registration details are usually announced before the event. Keep an eye on our announcements and click the Register button when it opens!";
-    }
-    
-    if (message.includes("house") || message.includes("team")) {
-      return "There are 4 houses in Coder's Cup: Po (The Unpredictable Force), Oogway (Ancient Wisdom), Tai Lung (Relentless Power), and Mantis (Precision & Stings). House Captains will bid on qualified participants to form their teams!";
-    }
-    
-    if (message.includes("prize") || message.includes("reward") || message.includes("win")) {
-      return "Winners receive exciting prizes and recognition! The exact prizes vary each year, but glory and bragging rights are guaranteed for the champions. Check the Prizes section for more details!";
-    }
-    
-    if (message.includes("hello") || message.includes("hi") || message.includes("hey")) {
-      return "Greetings, young warrior! I am PoBot, here to guide you through your Coder's Cup journey. What wisdom do you seek today?";
-    }
-    
-    if (message.includes("help") || message.includes("what") || message.includes("?")) {
-      return "I can help you with information about Coder's Cup, the competition format, registration, houses, prizes, and more! Just ask me anything about the event.";
-    }
-    
-    return "Hmm, that's an interesting question! While I may not have all the answers, I encourage you to explore our website for more details or contact our team directly. Remember, every master was once a beginner!";
-  };
+  // Test API connection on component mount
+  useEffect(() => {
+    const testConnection = async () => {
+      const connected = await chatbotApi.testConnection();
+      setIsApiConnected(connected);
+    };
+    testConnection();
+  }, []);
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
@@ -91,18 +69,41 @@ const PoBotChatbot = ({ isOpen, onClose }: PoBotChatbotProps) => {
     setInputMessage("");
     setIsTyping(true);
 
-    // Simulate bot typing delay
-    setTimeout(() => {
+    try {
+      const response = await chatbotApi.sendMessage(inputMessage);
+      
       const botResponse: Message = {
         id: (Date.now() + 1).toString(),
-        text: getBotResponse(inputMessage),
+        text: response.message,
         isUser: false,
         timestamp: new Date(),
+        isError: response.status === 'error'
       };
       
       setMessages(prev => [...prev, botResponse]);
+      
+      // Update API connection status based on response
+      if (response.status === 'error') {
+        setIsApiConnected(false);
+      } else {
+        setIsApiConnected(true);
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      
+      const errorResponse: Message = {
+        id: (Date.now() + 1).toString(),
+        text: "Sorry, I'm having trouble connecting to my wisdom source. Please try again in a moment!",
+        isUser: false,
+        timestamp: new Date(),
+        isError: true
+      };
+      
+      setMessages(prev => [...prev, errorResponse]);
+      setIsApiConnected(false);
+    } finally {
       setIsTyping(false);
-    }, 1000 + Math.random() * 1000); // Random delay between 1-2 seconds
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -132,8 +133,15 @@ const PoBotChatbot = ({ isOpen, onClose }: PoBotChatbotProps) => {
               />
             </div>
             <div>
-              <h3 className="font-bold text-base sm:text-lg">PoBot</h3>
-              <p className="text-xs sm:text-sm opacity-90 hidden sm:block">Ask away, warrior of wisdom...</p>
+              <div className="flex items-center gap-2">
+                <h3 className="font-bold text-base sm:text-lg">PoBot</h3>
+                {!isApiConnected && (
+                  <AlertCircle className="w-3 h-3 text-yellow-300" aria-label="API Connection Issue" />
+                )}
+              </div>
+              <p className="text-xs sm:text-sm opacity-90 hidden sm:block">
+                {isApiConnected ? "Ask away, warrior of wisdom..." : "Using fallback responses"}
+              </p>
             </div>
           </div>
           <button
@@ -155,12 +163,14 @@ const PoBotChatbot = ({ isOpen, onClose }: PoBotChatbotProps) => {
                 className={`max-w-[85%] sm:max-w-[80%] p-2 sm:p-3 rounded-2xl ${
                   message.isUser
                     ? "bg-[#930000] text-white rounded-br-md"
+                    : message.isError
+                    ? "bg-red-50 text-red-800 rounded-bl-md border border-red-200"
                     : "bg-white text-gray-800 rounded-bl-md border border-gray-200"
                 }`}
               >
                 <p className="text-xs sm:text-sm leading-relaxed">{message.text}</p>
                 <p className={`text-xs mt-1 ${
-                  message.isUser ? "text-white/70" : "text-gray-500"
+                  message.isUser ? "text-white/70" : message.isError ? "text-red-500" : "text-gray-500"
                 }`}>
                   {formatTime(message.timestamp)}
                 </p>
