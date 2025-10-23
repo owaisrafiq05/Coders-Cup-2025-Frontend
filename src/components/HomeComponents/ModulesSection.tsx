@@ -7,6 +7,8 @@ interface ModuleData {
   name: string;
   description: string;
   mascotImage: string;
+  members?: string;
+  fee?: number;
 }
 
 const modulesData: ModuleData[] = [
@@ -14,37 +16,49 @@ const modulesData: ModuleData[] = [
     name: "Coder's Cup: Competitive Programming",
     description:
       "An annual programming contest where top teams from each batch compete through multiple rounds, tackling up to five problems from basics to dynamic programming. Finalists form houses that battle for the title. Team size: 1–3.",
-    mascotImage: "po.jpg"
+    mascotImage: "po.jpg",
+    members: "2 to 3",
+    fee: 500
   },
   {
     name: "Hackathon",
     description:
       "An intense coding marathon where participants design, develop, and deploy innovative solutions within a limited time. Open to all skill levels, the competition tests creativity, problem-solving, and teamwork through real-world challenges that demand both technical expertise and collaboration.",
-    mascotImage: "shifu.png"
+    mascotImage: "shifu.png",
+    members: "2 to 3",
+    fee: 800
   },
   {
     name: "Code-Fu: The Debugging Trials",
     description:
       "A multi-stage debugging challenge where participants identify, analyze, and fix coding bugs across diverse scenarios. Each round tests accuracy, speed, and logical reasoning under pressure, leading participants to uncover a hidden message by the end of the journey.",
-    mascotImage: "furious-five.png"
+    mascotImage: "furious-five.png",
+    members: "2 to 3",
+    fee: 800
   },
   {
     name: "Data Dash",
     description:
       "A beginner-friendly data visualization challenge where teams of 2–3 students analyze real-world datasets to uncover meaningful insights. Open to participants from all disciplines, the competition blends analytical and creative visualization techniques to answer both numerical and qualitative questions.",
-    mascotImage: "ping.png"
+    mascotImage: "ping.png",
+    members: "2 to 3",
+    fee: 800
   },
   {
     name: "Chi Paradox - By PROCOM",
     description:
       "A logic and puzzle-solving challenge inspired by the balance and wisdom of Kung Fu Panda’s universe. Participants progress through seven stages filled with riddles, sequences, and reasoning-based tasks that test intellect, patience, and critical thinking.",
-    mascotImage: "kai.png"
+    mascotImage: "kai.png",
+    members: "2 to 3",
+    fee: 800
   },
   {
     name: "Pitch Warriors",
     description:
       "A one-day marketing competition testing creativity, persuasion, and adaptability. Teams of 2–4 compete in two rounds — ‘Pitch Perfect’, featuring spontaneous elevator pitches, and ‘Brand Battle’, where finalists develop and defend brand strategies while reacting to surprise market crises. ",
-    mascotImage: "chama.png"
+    mascotImage: "chama.png",
+    members: "2 to 3",
+    fee: 800
   }
 ];
 
@@ -98,6 +112,8 @@ const ModulesSection: React.FC = () => {
                 name={module.name}
                 description={module.description}
                 mascotImage={module.mascotImage}
+                members={module.members}
+                fee={module.fee}
                 index={index}
               />
             </div>

@@ -1,3 +1,4 @@
+import { UsersRound, Tag } from "lucide-react";
 import type React from "react";
 
 interface ModuleCardProps {
@@ -5,9 +6,11 @@ interface ModuleCardProps {
   description: string;
   mascotImage: string;
   index: number;
+  members?: string;
+  fee?: number;
 }
 
-const ModuleCard: React.FC<ModuleCardProps> = ({ name, description, mascotImage, index }) => {
+const ModuleCard: React.FC<ModuleCardProps> = ({ name, description, mascotImage, index, members, fee }) => {
   return (
     <div
       className="group relative h-auto min-h-[450px] rounded-3xl overflow-hidden border-3 border-[#930000] bg-[#FEFEEA] shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2"
@@ -43,6 +46,18 @@ const ModuleCard: React.FC<ModuleCardProps> = ({ name, description, mascotImage,
           <p className="text-[#131313] text-sm sm:text-base leading-relaxed font-medium opacity-90 group-hover:opacity-100 transition-opacity duration-300">
             {description}
           </p>
+        </div>
+
+        {/* Members and Fee Info */}
+        <div className="flex justify-between items-center mb-4 text-sm text-gray-700 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="flex items-center gap-2">
+            <UsersRound className="w-6 h-6 text-[#930000]" />
+            <span>{members} Members</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Tag className="w-6 h-6 text-[#930000]" />
+            <span>{fee === 0 ? "Free for FASTians" : `Rs. ${fee}`}</span>
+          </div>
         </div>
 
         {/* Bottom Accent - Fixed Position */}

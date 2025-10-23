@@ -99,10 +99,10 @@ const Footer = () => {
                   <li className="flex justify-start gap-2 sm:gap-3">
                     <AtSign className="w-4 h-4 sm:w-5 sm:h-5 mt-0.5 flex-shrink-0" />
                     <a
-                      href="mailto:acmcoderscup@gmail.com"
+                      href="mailto:khi.acm@nu.edu.pk"
                       className="text-sm sm:text-base hover:text-[#FFF] transition-colors break-all"
                     >
-                      acmcoderscup@gmail.com
+                      khi.acm@nu.edu.pk
                     </a>
                   </li>
                   <li className="flex justify-start gap-2 sm:gap-3">

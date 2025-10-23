@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { X, Send, AlertCircle } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 import { chatbotApi } from "../../services/chatbotApi";
 
 interface Message {
@@ -120,7 +121,7 @@ const PoBotChatbot = ({ isOpen, onClose }: PoBotChatbotProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-end justify-end p-2 sm:p-4 pointer-events-none">
+    <div className="fixed inset-0 z-[100] caret-black flex items-end justify-end p-2 sm:p-4 pointer-events-none">
       <div className="w-full max-w-sm h-[85vh] sm:h-[75vh] md:h-[500px] max-h-[600px] bg-[#FEFEEA] rounded-2xl shadow-2xl border-2 border-[#930000] flex flex-col pointer-events-auto">
         {/* Header */}
         <div className="bg-[#930000] text-white p-3 sm:p-4 rounded-t-2xl flex items-center justify-between flex-shrink-0">
@@ -168,7 +169,28 @@ const PoBotChatbot = ({ isOpen, onClose }: PoBotChatbotProps) => {
                     : "bg-white text-gray-800 rounded-bl-md border border-gray-200"
                 }`}
               >
-                <p className="text-xs sm:text-sm leading-relaxed">{message.text}</p>
+                {message.isUser ? (
+                  <p className="text-xs sm:text-sm leading-relaxed">{message.text}</p>
+                ) : (
+                  <div className="text-xs sm:text-sm leading-relaxed prose prose-sm max-w-none prose-p:my-1 prose-ul:my-1 prose-ol:my-1 prose-li:my-0.5 prose-headings:my-1 prose-headings:font-bold prose-strong:font-bold prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-xs">
+                    <ReactMarkdown
+                      components={{
+                        p: ({ children }) => <p className="mb-1 last:mb-0">{children}</p>,
+                        ul: ({ children }) => <ul className="list-disc list-inside mb-1">{children}</ul>,
+                        ol: ({ children }) => <ol className="list-decimal list-inside mb-1">{children}</ol>,
+                        li: ({ children }) => <li className="mb-0.5">{children}</li>,
+                        strong: ({ children }) => <strong className="font-bold">{children}</strong>,
+                        em: ({ children }) => <em className="italic">{children}</em>,
+                        code: ({ children }) => <code className="bg-gray-100 px-1 py-0.5 rounded text-xs">{children}</code>,
+                        h1: ({ children }) => <h1 className="text-sm font-bold mb-1">{children}</h1>,
+                        h2: ({ children }) => <h2 className="text-sm font-bold mb-1">{children}</h2>,
+                        h3: ({ children }) => <h3 className="text-xs font-bold mb-1">{children}</h3>,
+                      }}
+                    >
+                      {message.text}
+                    </ReactMarkdown>
+                  </div>
+                )}
                 <p className={`text-xs mt-1 ${
                   message.isUser ? "text-white/70" : message.isError ? "text-red-500" : "text-gray-500"
                 }`}>
