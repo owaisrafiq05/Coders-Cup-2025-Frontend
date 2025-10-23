@@ -4,7 +4,7 @@ const CodersCupHero = () => {
   return (
     <section className="relative min-h-screen font-outfit px-4 sm:px-6 lg:px-8">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
-        <div className="absolute hidden sm:flex items-center justify-center opacity-30 w-screen h-full overflow-hidden">
+        <div className="absolute hidden sm:flex items-center justify-center opacity-20 w-screen h-full overflow-hidden">
           <div
             className="absolute rounded-full border border-[#EA4A4A] w-[1150px] h-[1150px]"
           ></div>
@@ -28,7 +28,7 @@ const CodersCupHero = () => {
           CODER'S CUP: <br /> Competitive Programming
         </h2>
 
-        <p className="max-w-full sm:max-w-[90%] bg-[#FEFEEA] md:max-w-[85%] lg:max-w-[1200px] font-medium text-sm sm:text-base md:text-lg lg:text-xl xl:text-[28px] text-center text-gray-900 px-2 sm:px-4 md:px-6 lg:px-8">
+        <p className="max-w-full sm:max-w-[90%] bg-[#FEFEEA] md:max-w-[85%] lg:max-w-[1200px] font-medium text-sm sm:text-base md:text-lg lg:text-xl xl:text-[28px] text-center text-gray-900 px-2 sm:px-4 md:px-6 lg:px-8 md:py-3">
           The Coder’s Cup: The classic is an{" "}
           <span className="text-[#930000]">
             exclusive programming competition for FASTians

@@ -1,4 +1,6 @@
 import type React from "react";
+import { useState } from "react";
+import RegistrationModal from "../GlobalComponents/RegistrationModal";
 import ModuleCard from "./ModuleCard";
 
 interface ModuleData {
@@ -24,7 +26,7 @@ const modulesData: ModuleData[] = [
     name: "Code-Fu: The Debugging Trials",
     description:
       "A multi-stage debugging challenge where participants identify, analyze, and fix coding bugs across diverse scenarios. Each round tests accuracy, speed, and logical reasoning under pressure, leading participants to uncover a hidden message by the end of the journey.",
-    mascotImage: "furious-five.jpg"
+    mascotImage: "furious-five.png"
   },
   {
     name: "Data Dash",
@@ -47,23 +49,25 @@ const modulesData: ModuleData[] = [
 ];
 
 const ModulesSection: React.FC = () => {
-  return (
-    <section  id="modules" className="w-full bg-[#FEFEEA] relative overflow-hidden">
-      <div className="absolute hidden sm:flex items-center justify-center opacity-30 w-screen h-full overflow-hidden">
-          <div
-            className="absolute rounded-full border border-[#EA4A4A] w-[1450px] h-[1450px]"
-          ></div>
-          <div
-            className="absolute rounded-full border border-[#EA4A4A] w-[1150px] h-[1150px]"
-          ></div>
-          <div
-            className="absolute rounded-full border border-[#EA4A4A] opacity-60 w-[850px] h-[850px]"
-          ></div>
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-          <div
-            className="absolute rounded-full border border-[#EA4A4A] opacity-60 w-[550px] h-[550px]"
-          ></div>
-        </div>
+  return (
+    <section id="modules" className="w-full bg-[#FEFEEA] relative overflow-hidden">
+      <div className="absolute hidden sm:flex items-center justify-center opacity-30 w-screen h-full overflow-hidden">
+        <div
+          className="absolute rounded-full border border-[#EA4A4A] w-[1450px] h-[1450px]"
+        ></div>
+        <div
+          className="absolute rounded-full border border-[#EA4A4A] w-[1150px] h-[1150px]"
+        ></div>
+        <div
+          className="absolute rounded-full border border-[#EA4A4A] opacity-60 w-[850px] h-[850px]"
+        ></div>
+
+        <div
+          className="absolute rounded-full border border-[#EA4A4A] opacity-60 w-[550px] h-[550px]"
+        ></div>
+      </div>
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-32 h-32 bg-[#930000] rounded-full blur-3xl" />
@@ -99,8 +103,23 @@ const ModulesSection: React.FC = () => {
             </div>
           ))}
         </div>
+        <div className="mt-10 sm:mt-14">
+          <button
+            onClick={() => setIsModalOpen(true)}
+           className="mx-auto block items-center justify-center rounded-full bg-[#930000] text-[#FEFEEA]
+                           font-semibold cursor-pointer sm:text-lg px-10 sm:px-15 py-2.5 sm:py-3 hover:shadow-2xl transition-shadow duration-200"
+ >
+            Register Now
+          </button>
+        </div>
+
       </div>
 
+      {/* Registration Modal */}
+      <RegistrationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
       {/* Custom CSS for animations */}
       <style dangerouslySetInnerHTML={{
         __html: `

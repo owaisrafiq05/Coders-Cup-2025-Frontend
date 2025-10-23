@@ -126,7 +126,7 @@ const PoBotChatbot = ({ isOpen, onClose }: PoBotChatbotProps) => {
           <div className="flex items-center gap-2 sm:gap-3">
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-[#FEFEEA]">
               <img 
-                src="po.jpg" 
+                src="bot.png" 
                 alt="PoBot" 
                 className="w-full h-full object-cover"
               />

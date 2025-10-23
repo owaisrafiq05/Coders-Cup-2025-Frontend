@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import RegistrationModal from "../GlobalComponents/RegistrationModal";
+// import React, { useState } from "react";
+// import RegistrationModal from "../GlobalComponents/RegistrationModal";
 
 const AboutSection: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section id="about" className="bg-[#FEFEEA] z-10">
@@ -20,11 +20,12 @@ const AboutSection: React.FC = () => {
             </h2>
 
             <p className="mt-4 sm:mt-6 text-[13px] sm:text-sm md:text-base lg:text-2xl opacity-95">
-              Coder’s Cup is our FAST NUCES’ annual coding competition, designed to bring
-              together the brightest problem-solvers, developers, and tech enthusiasts under
-              one banner. Each year, the event challenges participants to push their creative
-              and analytical limits through a series of programming and algorithmic challenges.
+              Coder's Cup is FAST Karachi annual coding competition, organized by the ACM NUCES Khi.
+              It brings together the brightest problem-solvers, developers, and tech enthusiasts under one banner.
+              Each year, the event challenges participants to push their creative and analytical limits through a
+              series of programming and algorithmic challenges.
             </p>
+
 
             <p className="mt-3 sm:mt-4 text-[13px] sm:text-sm md:text-base lg:text-2xl opacity-95">
               The Coder’s Cup aims to inspire a culture of learning, collaboration, and
@@ -33,11 +34,11 @@ const AboutSection: React.FC = () => {
 
             <div className="mt-6 sm:mt-8">
               <button
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => window.open("https://acmnuceskhi.com/", "_blank")}
                 className="inline-flex items-center cursor-pointer justify-center rounded-full bg-[#FEFEEA] text-[#930000]
                            font-semibold sm:text-lg px-10 sm:px-15 py-2.5 sm:py-3 hover:shadow-lg transition-shadow duration-200"
               >
-                Register Now
+                About ACM
               </button>
             </div>
           </div>
@@ -64,10 +65,10 @@ const AboutSection: React.FC = () => {
       </div>
 
       {/* Registration Modal */}
-      <RegistrationModal
+      {/* <RegistrationModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-      />
+      /> */}
     </section>
   );
 };

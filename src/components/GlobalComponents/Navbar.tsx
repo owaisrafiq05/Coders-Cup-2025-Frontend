@@ -166,16 +166,8 @@ const Navbar = () => {
                   className="mt-3 rounded-2xl overflow-hidden border"
                   style={{ borderColor: THEME.primary }}
                 >
-                  <button
-                    onClick={() => {
-                      setIsMenuOpen(false);
-                      setIsModalOpen(true);
-                    }}
-                    className="block w-full text-left px-4 py-3 text-white border-b border-[#930000]"
-                  >
-                    Register
-                  </button>
-                  {navItems.map((item, i) => (
+
+                  {navItems.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
@@ -208,6 +200,20 @@ const Navbar = () => {
                 >
                   Contact Us
                 </a> */}
+                <button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setIsModalOpen(true);
+                  }}
+                  className="mt-4 block w-full text-center rounded-full font-semibold py-2.5 shadow-md hover:shadow-lg transition"
+                  style={{
+                    color: "#FEFEEA",
+                    backgroundColor: THEME.primary,
+                    border: `2px solid ${THEME.dark}`,
+                  }}
+                >
+                  Register
+                </button>
               </div>
             </div>
           </div>
