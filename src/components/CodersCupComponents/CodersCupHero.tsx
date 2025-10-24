@@ -1,4 +1,5 @@
 import ScrollIndicator from "../GlobalComponents/ScrollIndicator";
+import { motion } from "framer-motion";
 
 const CodersCupHero = () => {
   return (
@@ -18,22 +19,40 @@ const CodersCupHero = () => {
           ></div>
         </div>
       </div>
-      <div className="relative mx-auto max-w-7xl -mt-[68px] py-8 flex flex-col justify-center items-center gap-8">
-        <img
+      <motion.div 
+        className="relative mx-auto max-w-7xl -mt-[68px] py-8 flex flex-col justify-center items-center gap-8"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <motion.img
           src="coderscup-hero.png"
           alt="ACM brings you the Coders Cup — unleash your inner dragon!"
           className="w-full object-contain mt-14 max-h-[120px] sm:max-h-[140px] md:max-h-[160px] lg:max-h-[180px] max-w-[80px] sm:max-w-[90px] md:max-w-[110px] lg:max-w-[122px]"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
         />
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-wide text-[#930000] leading-[1] text-center">
+        <motion.h2 
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-wide text-[#930000] leading-[1] text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+        >
           CODER'S CUP: <br /> Competitive Programming
-        </h2>
+        </motion.h2>
 
-        <p className="max-w-full sm:max-w-[90%] bg-[#FEFEEA] md:max-w-[85%] lg:max-w-[1200px] font-medium text-sm sm:text-base md:text-lg lg:text-xl xl:text-[28px] text-center text-gray-900 px-2 sm:px-4 md:px-6 lg:px-8 md:py-3">
-          The Coder’s Cup: The classic is an{" "}
+        <motion.p 
+          className="max-w-full sm:max-w-[90%] bg-[#FEFEEA] md:max-w-[85%] lg:max-w-[1200px] font-medium text-sm sm:text-base md:text-lg lg:text-xl xl:text-[28px] text-center text-gray-900 px-2 sm:px-4 md:px-6 lg:px-8 md:py-3"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+        >
+          The Coder's Cup: The classic is an{" "}
           <span className="text-[#930000]">
             exclusive programming competition for FASTians
           </span>
-          , designed to test participants’ logic, creativity, and coding
+          , designed to test participants' logic, creativity, and coding
           mastery. The event follows a batch-wise competitive format where each
           participant tackles a series of{" "}
           <span className="text-[#930000]">3–5 algorithmic challenges</span>{" "}
@@ -47,8 +66,8 @@ const CodersCupHero = () => {
           </span>{" "}
           to form their final teams. These teams then advance to the Grand
           Finale, where they compete for ultimate glory.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
       <ScrollIndicator />
     </section>
   );

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import RegistrationModal from "../GlobalComponents/RegistrationModal";
+import { motion } from "framer-motion";
 
 export default function Prizes() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -9,26 +10,56 @@ export default function Prizes() {
     return (
         <section className="rounded-t-[50px] bg-[#7E0000] py-8 sm:py-12 overflow-hidden">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
-                <div className="text-[#FEFEEA] flex flex-col items-center justify-center text-center">
+                <motion.div 
+                  className="text-[#FEFEEA] flex flex-col items-center justify-center text-center"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  viewport={{ once: true, margin: "-100px" }}
+                >
                     {/* Title */}
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#FEFEEA] uppercase tracking-wide mb-4 sm:mb-6 md:mb-8 leading-tight">
+                    <motion.h1 
+                      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#FEFEEA] uppercase tracking-wide mb-4 sm:mb-6 md:mb-8 leading-tight"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                      viewport={{ once: true, margin: "-100px" }}
+                    >
                         PRIZES FOR TOP PERFORMERS
-                    </h1>
+                    </motion.h1>
 
                     {/* Description */}
-                    <p className="text-[#FEFEEA] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium leading-relaxed mb-6 sm:mb-8 opacity-95 max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto">
+                    <motion.p 
+                      className="text-[#FEFEEA] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium leading-relaxed mb-6 sm:mb-8 opacity-95 max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                      viewport={{ once: true, margin: "-100px" }}
+                    >
                         Winner and runners up from each batch irrespective of the house won.
-                    </p>
+                    </motion.p>
 
                     {/* Coming Soon Text */}
-                    <div className="mb-6 sm:mb-8 ">
+                    <motion.div 
+                      className="mb-6 sm:mb-8"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+                      viewport={{ once: true, margin: "-100px" }}
+                    >
                         <p className="text-[#FEFEEA] text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold tracking-wider opacity-90">
                             TO BE ANNOUNCED SOON...
                         </p>
-                    </div>
+                    </motion.div>
 
                     {/* Register Button */}
-                    <div className="flex justify-center">
+                    <motion.div 
+                      className="flex justify-center"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+                      viewport={{ once: true, margin: "-100px" }}
+                    >
                         <button
                             onClick={() => setIsModalOpen(true)}
                             className="inline-flex items-center cursor-pointer justify-center rounded-full bg-[#FEFEEA] text-[#930000]
@@ -36,8 +67,8 @@ export default function Prizes() {
                         >
                             Register Now
                         </button>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </div>
 
             {/* Registration Modal */}

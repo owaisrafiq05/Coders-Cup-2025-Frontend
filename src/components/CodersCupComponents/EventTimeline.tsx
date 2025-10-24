@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-
+import { motion } from "framer-motion";
 import { Code2, Gavel, Trophy } from "lucide-react";
 
 interface TimelineEvent {
@@ -59,9 +59,15 @@ export default function EventTimeline() {
 
       <div className="relative z-10 max-w-6xl mx-auto py-12  md:py-20">
         {/* Title */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-wide text-[#930000] uppercase leading-[1] text-center mb-16 md:mb-24">
+        <motion.h2 
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-wide text-[#930000] uppercase leading-[1] text-center mb-16 md:mb-24"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
           EVENT FORMAT
-        </h2>
+        </motion.h2>
 
 
         {/* Timeline Container */}
@@ -73,8 +79,15 @@ export default function EventTimeline() {
 
           {/* Events */}
           <div className="space-y-12 md:space-y-20">
-            {events.map((event) => (
-              <div key={event.id} className="relative">
+            {events.map((event, index) => (
+              <motion.div 
+                key={event.id} 
+                className="relative"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-100px" }}
+              >
                 {/* Desktop Layout */}
                 <div className="hidden md:grid md:grid-cols-2 md:gap-8">
                   {event.position === "left" ? (
@@ -177,16 +190,22 @@ export default function EventTimeline() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           {/* Bottom Timeline Dot - Positioned at the end of timeline */}
-          <div className="flex justify-center mt-8">
+          <motion.div 
+            className="flex justify-center mt-8"
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
             <div className="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-10">
               <div className="w-4 h-4 bg-[#930000] rounded-full shadow-lg border-2 border-[#f5f1e8]"></div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

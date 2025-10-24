@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
+import { motion } from "framer-motion";
 
 const IntroductionCarousel = () => {
   const houseImages = [
@@ -10,7 +11,13 @@ const IntroductionCarousel = () => {
   ];
 
   return (
-    <div className="w-full mt-10">
+    <motion.div 
+      className="w-full mt-10"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-100px" }}
+    >
       <Swiper
         modules={[Navigation, Autoplay]}
         navigation={true}
@@ -35,7 +42,7 @@ const IntroductionCarousel = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </motion.div>
   );
 };
 

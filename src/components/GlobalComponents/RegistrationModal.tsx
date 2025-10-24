@@ -44,7 +44,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
                         REGISTRATION
                     </h2>
                     <button
-                        onClick={onClose}
+                        onClick={onClose}   	
                         className="p-1.5 rounded-full hover:bg-black/10 transition-colors text-black cursor-pointer"
                     >
                         <X size={20} />
