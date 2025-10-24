@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 import RegistrationModal from "./RegistrationModal";
 import PoBotChatbot from "./PoBotChatbot";
 
@@ -61,13 +62,13 @@ const Navbar = () => {
             }}
           >
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 className="px-3 sm:px-5 text-white font-medium hover:text-[#FEFEEA] transition-all duration-200 text-sm"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
             <HashLink
               className="px-3 sm:px-5 text-white font-medium hover:text-[#FEFEEA] transition-all duration-200 text-sm"
@@ -97,11 +98,11 @@ const Navbar = () => {
         >
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href="/" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <div className="w-8 h-8 flex items-center justify-center">
                 <img src="/logo.png" alt="logo" className="w-6 h-6" />
               </div>
-            </a>
+            </Link>
 
             <div className="flex items-center gap-2">
               {/* PoBot Button - Outside hamburger menu */}
@@ -168,15 +169,14 @@ const Navbar = () => {
                 >
 
                   {navItems.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.href}
+                      to={item.href}
                       onClick={() => setIsMenuOpen(false)}
-                      // className={`block px-4 py-3 text-white ${i !== navItems.length - 1 ? "border-b border-[#930000]" : ""}`}
                       className={`block px-4 py-3 text-white`}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                   <HashLink
                     onClick={() => setIsMenuOpen(false)}
