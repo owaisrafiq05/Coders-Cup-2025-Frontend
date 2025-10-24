@@ -3,8 +3,7 @@ import {
   AtSign,
   MapPin,
   Facebook,
-  Instagram,
-  Twitter,
+  Instagram
 } from "lucide-react";
 
 // Custom LinkedIn icon component since Lucide's is deprecated
@@ -66,17 +65,17 @@ const Footer = () => {
                   Coder’s Cup
                 </a>
                 <a
-                  href="/modules"
+                  href="/#modules"
                   className="text-[18px] md:text-[19px] lg:text-[20px] font-normal tracking-wider hover:text-[#FFF] transition-colors"
                 >
                   Module’s
                 </a>
-                <a
+                {/* <a
                   href="/sponsors"
                   className="text-[18px] md:text-[19px] lg:text-[20px] font-normal tracking-wider hover:text-[#FFF] transition-colors"
                 >
                   Sponsors
-                </a>
+                </a> */}
               </nav>
             </div>
 
@@ -90,7 +89,7 @@ const Footer = () => {
                   <li className="flex justify-start gap-2 sm:gap-3">
                     <Phone className="w-4 h-4 sm:w-5 sm:h-5 mt-0.5 flex-shrink-0" />
                     <a
-                      href="tel:+923000000000"
+                      href="tel:+923330201433"
                       className="text-sm sm:text-base hover:text-[#FFF] transition-colors"
                     >
                       +92 300 0000000
@@ -144,32 +143,25 @@ const Footer = () => {
         </p>
         <div className="flex items-center gap-2 sm:gap-3">
           <a
-            href="#"
+            href="https://www.facebook.com/acmnuceskhi"
             aria-label="Facebook"
             className="w-8 h-8 sm:w-9 sm:h-9 bg-white text-black rounded-[6px] flex items-center justify-center hover:bg-gray-100 transition-colors"
           >
             <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
           </a>
           <a
-            href="#"
+            href="https://www.instagram.com/acmnuceskhi/"
             aria-label="Instagram"
             className="w-8 h-8 sm:w-9 sm:h-9 bg-white text-black rounded-[6px] flex items-center justify-center hover:bg-gray-100 transition-colors"
           >
             <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/company/acmnuceskhi/"
             aria-label="LinkedIn"
             className="w-8 h-8 sm:w-9 sm:h-9 bg-white text-black rounded-[6px] flex items-center justify-center hover:bg-gray-100 transition-colors"
           >
             <LinkedInIcon className="w-4 h-4 sm:w-5 sm:h-5" />
-          </a>
-          <a
-            href="#"
-            aria-label="Twitter"
-            className="w-8 h-8 sm:w-9 sm:h-9 bg-white text-black rounded-[6px] flex items-center justify-center hover:bg-gray-100 transition-colors"
-          >
-            <Twitter className="w-4 h-4 sm:w-5 sm:h-5" />
           </a>
         </div>
       </div>
