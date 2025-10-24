@@ -1,5 +1,5 @@
 import React from "react";
-import { X, Code2, Layers } from "lucide-react";
+import { X, Code2 } from "lucide-react";
 
 interface RegistrationModalProps {
     isOpen: boolean;
@@ -20,8 +20,8 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
         background: "#FEFEEA",
     };
 
-    const COMPETITIVE_PROGRAMMING_FORM = "https://forms.gle/your-cp-form-link";
-    const OTHER_MODULES_FORM = "https://forms.gle/your-modules-form-link";
+    //const COMPETITIVE_PROGRAMMING_FORM = "https://forms.gle/your-cp-form-link";
+    //const OTHER_MODULES_FORM = "https://forms.gle/your-modules-form-link";
 
     const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
         if (e.target === e.currentTarget) onClose();
