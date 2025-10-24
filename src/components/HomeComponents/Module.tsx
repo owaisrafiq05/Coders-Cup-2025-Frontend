@@ -1,4 +1,5 @@
 import { HashLink } from "react-router-hash-link";
+import { motion } from "framer-motion";
 
 const Module = () => {
   return (
@@ -27,25 +28,43 @@ const Module = () => {
 
       {/* Foreground content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-10 py-14 md:py-20">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-wide text-[#930000] uppercase leading-[1] text-center">
+        <motion.h2 
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-wide text-[#930000] uppercase leading-[1] text-center"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
           Introducing New Modules
-        </h2>
+        </motion.h2>
 
         <div className="mt-8 md:mt-10 bg-[#FEFEEA] sm:px-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="flex justify-center lg:justify-start">
+          <motion.div 
+            className="flex justify-center lg:justify-start"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
             <img
               src="module-pic.png"
               alt="preview of modules"
               className="w-[88%] max-w-[520px] h-auto lg:h-[520px] rounded-[30px] shadow-md object-cover"
             />
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col items-center lg:items-start">
+          <motion.div 
+            className="flex flex-col items-center lg:items-start"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
             <p className="text-[#131313] text-[18px] sm:text-[22px] md:text-[24px] lg:text-[28px] font-medium leading-[1] max-w-[46ch] text-center lg:text-left">
               Each module is led by a legendary mentor who captures the essence
-              of the challenge — Shifu’s mastery guides the Hackathon, the
-              Furious Five’s unity powers the Debugging trials, Mr. Ping’s
-              creativity fuels the Data Dash, and General Kai’s strategy
+              of the challenge — Shifu's mastery guides the Hackathon, the
+              Furious Five's unity powers the Debugging trials, Mr. Ping's
+              creativity fuels the Data Dash, and General Kai's strategy
               commands the Tech Heist.
               <br />
               <br />
@@ -53,7 +72,13 @@ const Module = () => {
               your house to victory!
             </p>
 
-            <div className="mt-6 md:mt-8">
+            <motion.div 
+              className="mt-6 md:mt-8"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
+            >
               <HashLink
                 className="inline-flex items-center justify-center rounded-full bg-[#930000] text-[#FEFEEA]
                            font-semibold sm:text-lg px-10 sm:px-15 py-2.5 sm:py-3 hover:shadow-lg transition-shadow duration-200"
@@ -69,8 +94,8 @@ const Module = () => {
               >
                 Explore Modules
               </a> */}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@ import type React from "react";
 import { useState } from "react";
 import RegistrationModal from "../GlobalComponents/RegistrationModal";
 import ModuleCard from "./ModuleCard";
+import { motion } from "framer-motion";
 
 interface ModuleData {
   name: string;
@@ -91,22 +92,27 @@ const ModulesSection: React.FC = () => {
 
       <div className="max-w-7xl  py-16 sm:py-20 lg:py-24   mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+        <motion.div 
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-wide text-[#930000] uppercase leading-[1] text-center">
             Modules
           </h2>
-        </div>
+        </motion.div>
 
         {/* Modules Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
           {modulesData.map((module, index) => (
-            <div
+            <motion.div
               key={module.name}
-              className="animate-fade-in-up"
-              style={{
-                animationDelay: `${index * 0.1}s`,
-                animationFillMode: 'both'
-              }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
             >
               <ModuleCard
                 name={module.name}
@@ -116,10 +122,16 @@ const ModulesSection: React.FC = () => {
                 fee={module.fee}
                 index={index}
               />
-            </div>
+            </motion.div>
           ))}
         </div>
-        <div className="mt-10 sm:mt-14">
+        <motion.div 
+          className="mt-10 sm:mt-14"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
           <button
             onClick={() => setIsModalOpen(true)}
            className="mx-auto block items-center justify-center rounded-full bg-[#930000] text-[#FEFEEA]
@@ -127,7 +139,7 @@ const ModulesSection: React.FC = () => {
  >
             Register Now
           </button>
-        </div>
+        </motion.div>
 
       </div>
 
@@ -136,25 +148,6 @@ const ModulesSection: React.FC = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
-      {/* Custom CSS for animations */}
-      <style dangerouslySetInnerHTML={{
-        __html: `
-          @keyframes fade-in-up {
-            from {
-              opacity: 0;
-              transform: translateY(30px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-          
-          .animate-fade-in-up {
-            animation: fade-in-up 0.6s ease-out;
-          }
-        `
-      }} />
     </section>
   );
 };

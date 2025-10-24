@@ -48,13 +48,25 @@ const positions = isMobile
 
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 2xl:px-[6rem] py-8 md:py-32">
+    <motion.div 
+      className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 2xl:px-[6rem] py-8 md:py-32"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-100px" }}
+    >
       {/* Title */}
-      <div className="text-center mb-4">
+      <motion.div 
+        className="text-center mb-4"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-wide text-[#930000]">
         GALLERY...
         </h2>
-      </div>
+      </motion.div>
 
       {/* Navigation Arrows - Mobile Only - Below Heading */}
       {/* {isMobile && (
@@ -104,7 +116,13 @@ const positions = isMobile
       )} */}
 
       {/* Carousel */}
-      <div className="relative w-full flex justify-center items-center overflow-hidden h-[280px] md:h-[380px]">
+      <motion.div 
+        className="relative w-full flex justify-center items-center overflow-hidden h-[280px] md:h-[380px]"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
         {positions.map((pos) => {
           const imageIndex = getIndex(pos.offset);
           return (
@@ -128,10 +146,16 @@ const positions = isMobile
             </motion.div>
           );
         })}
-      </div>
+      </motion.div>
 
       {/* Dots */}
-      <div className="flex justify-center mt-6 space-x-2">
+      <motion.div 
+        className="flex justify-center mt-6 space-x-2"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
         {images.map((_, index) => (
           <button
             key={index}
@@ -144,8 +168,8 @@ const positions = isMobile
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

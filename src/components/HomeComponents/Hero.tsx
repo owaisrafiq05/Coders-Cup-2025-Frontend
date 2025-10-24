@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { RollingText } from "./RollingText";
 import ScrollIndicator from "../GlobalComponents/ScrollIndicator";
-// import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -69,7 +69,12 @@ const Hero = () => {
       </div>
 
       {/* Foreground content (now slightly lower) */}
-      <div className="pt-30 sm:pt-40 relative z-10 text-center flex flex-col items-center translate-y-6 md:translate-y-10">
+      <motion.div 
+        className="pt-30 sm:pt-40 relative z-10 text-center flex flex-col items-center translate-y-6 md:translate-y-10"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
           {/* <AnimatePresence mode="wait">
             <motion.span
               key={titles[titleIndex]}
@@ -94,7 +99,12 @@ const Hero = () => {
           </AnimatePresence> */}
           <RollingText />
         
-        <div className="flex items-end justify-center gap-2 md:gap-4 text-[#930000]">
+        <motion.div 
+          className="flex items-end justify-center gap-2 md:gap-4 text-[#930000]"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+        >
           <div className="flex flex-col items-center">
             <span className="text-[10px] md:text-xs lg:text-sm font-semibold uppercase mb-1 tracking-wide">
               days
@@ -139,11 +149,15 @@ const Hero = () => {
               {String(timeLeft.seconds).padStart(2, "0")}
             </span>
           </div>
-        </div>
+        </motion.div>
 
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+        >
           <ScrollIndicator />
-        </div>
+        </motion.div>
 
         {/* <div className="flex flex-col items-center space-y-2 mt-8 md:mt-12 animate-bounce">
           <ChevronDown className="text-[#930000] w-6 h-4 sm:w-8 sm:h-6" />
@@ -151,7 +165,7 @@ const Hero = () => {
           <ChevronDown className="text-[#D99413] w-6 h-4 sm:w-8 sm:h-6 -mt-4" />
           <ChevronDown className="text-[#D99413] w-6 h-4 sm:w-8 sm:h-6 -mt-4" />
         </div> */}
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -2,6 +2,7 @@
 
 import type React from "react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 type HouseItem = {
   id: string;
@@ -68,30 +69,61 @@ const HousesCarousel: React.FC = () => {
               display: none !important;
             }
           }
+          
+          /* Hide scrollbars for HousesCarousel */
+          .houses-carousel-container {
+            overflow: hidden !important;
+            scrollbar-width: none !important; /* Firefox */
+            -ms-overflow-style: none !important; /* IE and Edge */
+          }
+          
+          .houses-carousel-container::-webkit-scrollbar {
+            display: none !important; /* Chrome, Safari, Opera */
+          }
+          
+          .houses-carousel-horizontal {
+            overflow-x: hidden !important;
+            scrollbar-width: none !important; /* Firefox */
+            -ms-overflow-style: none !important; /* IE and Edge */
+          }
+          
+          .houses-carousel-horizontal::-webkit-scrollbar {
+            display: none !important; /* Chrome, Safari, Opera */
+          }
         `,
         }}
       />
 
-      <section className="w-full bg-[#930000] text-[#FEFEEA] rounded-[32px] py-10 md:py-12">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="w-full bg-[#930000] text-[#FEFEEA] rounded-[32px] py-10 md:py-12 houses-carousel-container">
+        <div className="max-w-7xl mx-auto px-4 houses-carousel-container">
           {/* Heading */}
-          <div className="text-center mb-6 md:mb-8">
+          <motion.div 
+            className="text-center mb-6 md:mb-8"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-wide">
               HOUSES
             </h2>
             <p className="mt-4 sm:mt-6 leading-relaxed text-[13px] sm:text-sm md:text-base lg:text-2xl opacity-95">
               Only The Worthy Shall Rise
             </p>
-          </div>
+          </motion.div>
 
           <div className="flex justify-center px-2 sm:px-4">
             <div className="w-full flex justify-center md:justify-center">
               {/* Vertical layout for very small screens (below 370px) */}
-              <div className="block sm:hidden w-full max-w-xs very-small-screen">
+              <div className="block sm:hidden w-full max-w-xs very-small-screen houses-carousel-container">
                 <div className="flex flex-col gap-3">
-                  {items.map((card) => (
-                    <div
+                  {items.map((card, index) => (
+                    <motion.div
                       key={card.id}
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                      viewport={{ once: true, margin: "-100px" }}
                       onClick={() => {
                         // only trigger on click if the device supports touch
                         if ("ontouchstart" in window) handleCardClick(card.id);
@@ -147,7 +179,7 @@ const HousesCarousel: React.FC = () => {
                           </p>
                         )}
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -161,11 +193,16 @@ const HousesCarousel: React.FC = () => {
                   md:justify-center
                   pb-2 md:pb-0
                   normal-screen
+                  houses-carousel-horizontal
                 "
               >
-                {items.map((card) => (
-                  <div
+                {items.map((card, index) => (
+                  <motion.div
                     key={card.id}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                    viewport={{ once: true, margin: "-100px" }}
                     onClick={() => {
                       // only trigger on click if the device supports touch
                       if ("ontouchstart" in window) handleCardClick(card.id);
@@ -233,14 +270,20 @@ const HousesCarousel: React.FC = () => {
                         </p>
                       )}
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
           </div>
 
           {/* CTA */}
-          <div className="mt-8 md:mt-10 flex justify-center">
+          <motion.div 
+            className="mt-8 md:mt-10 flex justify-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
             <a
               href="/coders-cup"
               className="inline-flex items-center justify-center rounded-full bg-[#FEFEEA] text-[#930000]
@@ -248,7 +291,7 @@ const HousesCarousel: React.FC = () => {
             >
               Know More…
             </a>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

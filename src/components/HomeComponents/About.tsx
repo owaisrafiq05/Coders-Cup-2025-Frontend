@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 // import React, { useState } from "react";
 // import RegistrationModal from "../GlobalComponents/RegistrationModal";
 
@@ -14,7 +15,13 @@ const AboutSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 lg:gap-12 
                         p-5 sm:p-8 lg:p-20 w-full max-w-7xl">
           {/* Left: Text */}
-          <div className="flex flex-col justify-center text-center md:text-left">
+          <motion.div 
+            className="flex flex-col justify-center text-center md:text-left"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-wide">
               ABOUT US
             </h2>
@@ -32,7 +39,13 @@ const AboutSection: React.FC = () => {
               growth.
             </p>
 
-            <div className="mt-6 sm:mt-8">
+            <motion.div 
+              className="mt-6 sm:mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
+            >
               <button
                 onClick={() => window.open("https://acmnuceskhi.com/", "_blank")}
                 className="inline-flex items-center cursor-pointer justify-center rounded-full bg-[#FEFEEA] text-[#930000]
@@ -40,11 +53,17 @@ const AboutSection: React.FC = () => {
               >
                 About ACM
               </button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right: Dragon Scroll Image */}
-          <div className="relative flex items-center justify-center">
+          <motion.div 
+            className="relative flex items-center justify-center"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
             <img
               src="about-img.png"
               alt="ACM brings you the Coders Cup — unleash your inner dragon!"
@@ -56,7 +75,7 @@ const AboutSection: React.FC = () => {
               className="pointer-events-none absolute -inset-x-6 -bottom-8 h-24
                          bg-gradient-to-t from-black/10 to-transparent blur-2xl opacity-30"
             />
-          </div>
+          </motion.div>
         </div>
 
         {/* Subtle glow accents */}

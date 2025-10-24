@@ -1,12 +1,34 @@
+import { motion } from "framer-motion";
+
 const Sponsors = () => {
   return (
     <section className="rounded-t-[50px] bg-[#7E0000] w-full py-1 md:py-2 overflow-visible lg:max-h-[360px]">
       <div className="w-full max-w-7xl mx-auto px-4">
-        <div className="text-[#FEFEEA] py-4 px-10 text-center w-full flex flex-col gap-4 items-center justify-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide">
+        <motion.div 
+          className="text-[#FEFEEA] py-4 px-10 text-center w-full flex flex-col gap-4 items-center justify-center"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <motion.h2 
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
             In Collaboration With Tekno Fest Pakistan
-          </h2>
-            <img src="teknofest.png" alt="" className="h-20 sm:h-30 md:h-40" />
+          </motion.h2>
+          <motion.img 
+            src="teknofest.png" 
+            alt="" 
+            className="h-20 sm:h-30 md:h-40"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+          />
           {/* <div className="flex items-center justify-center gap-4">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl tracking-wide">Tekno Fest Pakistan</h2>
           </div> */}
@@ -37,7 +59,7 @@ const Sponsors = () => {
 
             </div>
           </div> */}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
