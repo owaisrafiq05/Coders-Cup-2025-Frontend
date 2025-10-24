@@ -108,7 +108,7 @@ const PoBotChatbot = ({ isOpen, onClose }: PoBotChatbotProps) => {
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey && !isTyping) {
       e.preventDefault();
       handleSendMessage();
     }
@@ -121,8 +121,20 @@ const PoBotChatbot = ({ isOpen, onClose }: PoBotChatbotProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] caret-black flex items-end justify-end p-2 sm:p-4 pointer-events-none">
-      <div className="w-full max-w-sm h-[85vh] sm:h-[75vh] md:h-[500px] max-h-[600px] bg-[#FEFEEA] rounded-2xl shadow-2xl border-2 border-[#930000] flex flex-col pointer-events-auto">
+    <div 
+      className="fixed inset-0 z-[100] caret-black flex items-end justify-end p-2 sm:p-4 pointer-events-none"
+      onWheel={(e) => {
+        // Prevent wheel event from bubbling to the body
+        e.stopPropagation();
+      }}
+    >
+      <div 
+        className="w-full max-w-sm h-[85vh] sm:h-[75vh] md:h-[500px] max-h-[600px] bg-[#FEFEEA] rounded-2xl shadow-2xl border-2 border-[#930000] flex flex-col pointer-events-auto"
+        onWheel={(e) => {
+          // Stop propagation to prevent body scroll
+          e.stopPropagation();
+        }}
+      >
         {/* Header */}
         <div className="bg-[#930000] text-white p-3 sm:p-4 rounded-t-2xl flex items-center justify-between flex-shrink-0">
           <div className="flex items-center gap-2 sm:gap-3">

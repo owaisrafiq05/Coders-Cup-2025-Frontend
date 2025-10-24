@@ -41,7 +41,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
                     className="flex items-center justify-between px-6 pt-2 sm:pt-4 mt-2"
                 >
                     <h2 className="text-xl sm:text-2xl font-extrabold tracking-wide" style={{ color: THEME.primary }}>
-                        REGISTER NOW
+                        REGISTRATION
                     </h2>
                     <button
                         onClick={onClose}
@@ -53,7 +53,62 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
                 {/* Content */}
                 <div className="p-5 space-y-4" style={{ backgroundColor: THEME.background }}>
-                    <div
+                    {/* ============================================ */}
+                    {/* REGISTRATION OPENING SOON MESSAGE */}
+                    {/* ============================================ */}
+                    <div className="pt-8 pb-4 px-6 text-center">
+                        <div className="mb-6">
+                            <div
+                                className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4"
+                                style={{ backgroundColor: THEME.primary }}
+                            >
+                                <Code2 size={30} style={{ color: THEME.background }} />
+                            </div>
+                            <h3
+                                className="text-2xl sm:text-3xl font-bold mb-3"
+                                style={{ color: THEME.primary }}
+                            >
+                                Registration Opening Soon!
+                            </h3>
+                            <p
+                                className="text-base sm:text-lg opacity-80"
+                                style={{ color: THEME.neutral }}
+                            >
+                                Stay tuned for updates. Registration will open shortly.
+                            </p>
+                        </div>
+
+                        {/* Footer */}
+                        <div className="mt-8">
+                            {/* <a href="https://www.fyltr.co/" target="_blank" rel="noopener noreferrer">
+                                <img
+                                    src="fyltr.png"
+                                    className="w-30 cursor-pointer sm:w-40 mx-auto"
+                                    alt="Powered by Fyltr"
+                                />
+                            </a> */}
+
+                            <p
+                                className="text-center text-xs opacity-60 mt-2"
+                                style={{ color: THEME.neutral }}
+                            >
+                                Need help?{" "}
+                                <a
+                                    href="mailto:acm@nu.edu.pk"
+                                    className="underline hover:opacity-80"
+                                    style={{ color: THEME.primary }}
+                                >
+                                    khi.acm@nu.edu.pk
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* ============================================ */}
+                    {/* COMMENTED OUT - ACTIVE REGISTRATION CONTENT */}
+                    {/* Uncomment below to enable registration forms */}
+                    {/* ============================================ */}
+                    {/* <div
                         onClick={() => window.open(COMPETITIVE_PROGRAMMING_FORM, "_blank")}
                         className="p-4 rounded-xl hover:shadow-lg transition-all cursor-pointer" style={{ backgroundColor: THEME.primary }}
                     >
@@ -91,10 +146,10 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
                                 Explore Modules
                             </a>
                         </div> */}
-                    </div>
+                    {/* </div> */}
 
                     {/* Other Modules Option */}
-                    <div
+                    {/* <div
                         onClick={() => window.open(OTHER_MODULES_FORM, "_blank")}
                         className="p-4 rounded-xl hover:shadow-lg transition-all cursor-pointer" style={{ backgroundColor: THEME.primary }}
                     >
@@ -128,7 +183,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
                         >
                             Register
                         </button> */}
-                    </div>
+                    {/* </div> */}
 
                     {/* Explore Button */}
                     {/* <div className="pt-2 text-center">
@@ -147,8 +202,8 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
                         </a>
                     </div> */}
 
-                    {/* Footer */}
-                    <div className="mt-3 ">
+                    {/* Footer - COMMENTED OUT */}
+                    {/* <div className="mt-3 ">
                         <a href="https://www.fyltr.co/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="fyltr.png"
@@ -170,7 +225,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
                                 khi.acm@nu.edu.pk
                             </a>
                         </p>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
