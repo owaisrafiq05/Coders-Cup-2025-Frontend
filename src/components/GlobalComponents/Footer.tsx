@@ -92,7 +92,7 @@ const Footer = () => {
                       href="tel:+923330201433"
                       className="text-sm sm:text-base hover:text-[#FFF] transition-colors"
                     >
-                      +92 300 0000000
+                      +92 333 0201433
                     </a>
                   </li>
                   <li className="flex justify-start gap-2 sm:gap-3">
