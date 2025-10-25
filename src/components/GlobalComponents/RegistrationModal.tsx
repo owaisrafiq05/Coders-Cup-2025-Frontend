@@ -1,5 +1,5 @@
 import React from "react";
-import { X, Code2 } from "lucide-react";
+import { X, Code2, Layers } from "lucide-react";
 
 interface RegistrationModalProps {
     isOpen: boolean;
@@ -20,8 +20,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
         background: "#FEFEEA",
     };
 
-    //const COMPETITIVE_PROGRAMMING_FORM = "https://forms.gle/your-cp-form-link";
-    //const OTHER_MODULES_FORM = "https://forms.gle/your-modules-form-link";
+    const COMPETITIVE_PROGRAMMING_FORM = "https://www.fyltr.co/f/5d5e6c8c-38fd-4c8f-8625-e20fff0fc181";
 
     const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
         if (e.target === e.currentTarget) onClose();
@@ -53,71 +52,18 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
                 {/* Content */}
                 <div className="p-5 space-y-4" style={{ backgroundColor: THEME.background }}>
-                    {/* ============================================ */}
-                    {/* REGISTRATION OPENING SOON MESSAGE */}
-                    {/* ============================================ */}
-                    <div className="pt-8 pb-4 px-6 text-center">
-                        <div className="mb-6">
-                            <div
-                                className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4"
-                                style={{ backgroundColor: THEME.primary }}
-                            >
-                                <Code2 size={30} style={{ color: THEME.background }} />
-                            </div>
-                            <h3
-                                className="text-2xl sm:text-3xl font-bold mb-3"
-                                style={{ color: THEME.primary }}
-                            >
-                                Registration Opening Soon!
-                            </h3>
-                            <p
-                                className="text-base sm:text-lg opacity-80"
-                                style={{ color: THEME.neutral }}
-                            >
-                                Stay tuned for updates. Registration will open shortly.
-                            </p>
-                        </div>
-
-                        {/* Footer */}
-                        <div className="mt-8">
-                            {/* <a href="https://www.fyltr.co/" target="_blank" rel="noopener noreferrer">
-                                <img
-                                    src="fyltr.png"
-                                    className="w-30 cursor-pointer sm:w-40 mx-auto"
-                                    alt="Powered by Fyltr"
-                                />
-                            </a> */}
-
-                            <p
-                                className="text-center text-xs opacity-60 mt-2"
-                                style={{ color: THEME.neutral }}
-                            >
-                                Need help?{" "}
-                                <a
-                                    href="mailto:acm@nu.edu.pk"
-                                    className="underline hover:opacity-80"
-                                    style={{ color: THEME.primary }}
-                                >
-                                    khi.acm@nu.edu.pk
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* ============================================ */}
-                    {/* COMMENTED OUT - ACTIVE REGISTRATION CONTENT */}
-                    {/* Uncomment below to enable registration forms */}
-                    {/* ============================================ */}
-                    {/* <div
+                    {/* Competitive Programming Module */}
+                    <div
                         onClick={() => window.open(COMPETITIVE_PROGRAMMING_FORM, "_blank")}
-                        className="p-4 rounded-xl hover:shadow-lg transition-all cursor-pointer" style={{ backgroundColor: THEME.primary }}
+                        className="p-4 rounded-xl hover:shadow-lg transition-all cursor-pointer" 
+                        style={{ backgroundColor: THEME.primary }}
                     >
                         <div className="flex items-center gap-3 mb-2">
                             <div
                                 className="p-2.5 rounded-full"
                                 style={{ backgroundColor: THEME.background }}
                             >
-                                <Code2 size={15} style={{ color: THEME.primary }} />
+                                <Code2 size={20} style={{ color: THEME.primary }} />
                             </div>
                             <h3
                                 className="text-sm sm:text-base font-semibold uppercase"
@@ -130,28 +76,23 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
                             className="text-sm opacity-80 mb-3"
                             style={{ color: THEME.background }}
                         >
-                            FASTians only - Join Coder’s Cup and test your algorithmic skills!
+                            FASTians only - Join Coder's Cup and test your algorithmic skills!
                         </p>
-                        {/* <button
-                            className="w-full inline-flex items-center justify-center rounded-full bg-[#930000] text-[#FEFEEA]
-                           font-semibold px-10 text-sm sm:px-15 py-2.5 hover:shadow-lg transition-shadow duration-200"
+                        <button
+                            className="w-full py-2 text-sm font-semibold rounded-lg transition-all"
+                            style={{
+                                backgroundColor: THEME.background,
+                                color: THEME.primary,
+                            }}
                         >
-                            Register
+                            Register Now
                         </button>
-                        <div className="mt-6 md:mt-8">
-                            <a
-                                href="#modules"
-                            // className="inline-flex items-center justify-center px-6 md:px-7 lg:px-8 py-3 md:py-3.5 lg:py-4 text-[#FEFEEA] font-semibold rounded-[40px] transition-all duration-200 hover:scale-[1.02]"
-                            >
-                                Explore Modules
-                            </a>
-                        </div> */}
-                    {/* </div> */}
+                    </div>
 
                     {/* Other Modules Option */}
-                    {/* <div
-                        onClick={() => window.open(OTHER_MODULES_FORM, "_blank")}
-                        className="p-4 rounded-xl hover:shadow-lg transition-all cursor-pointer" style={{ backgroundColor: THEME.primary }}
+                    <div
+                        className="p-4 rounded-xl transition-all opacity-60" 
+                        style={{ backgroundColor: THEME.primary }}
                     >
                         <div className="flex items-center gap-3 mb-2">
                             <div
@@ -173,59 +114,36 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
                         >
                             Open to all — explore AI Analytics, Hackathons, Debugging, and more!
                         </p>
-                        {/* <button
-                            className="w-full py-2 text-sm font-semibold rounded-lg transition-all"
+                        <button
+                            className="w-full py-2 text-sm font-semibold rounded-lg transition-all cursor-not-allowed"
                             style={{
-                                backgroundColor: THEME.dark,
-                                color: "white",
-                                border: `1px solid ${THEME.accent}`,
-                            }}
-                        >
-                            Register
-                        </button> */}
-                    {/* </div> */}
-
-                    {/* Explore Button */}
-                    {/* <div className="pt-2 text-center">
-                        <a
-                            href="/modules"
-                            onClick={onClose}
-                            className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-semibold rounded-full transition-all hover:scale-105"
-                            style={{
-                                backgroundColor: THEME.accent,
+                                backgroundColor: THEME.background,
                                 color: THEME.neutral,
-                                border: `1px solid ${THEME.primary}`,
+                                opacity: 0.7
                             }}
+                            disabled
                         >
-                            <Layers size={16} />
-                            Explore All Modules
-                        </a>
-                    </div> */}
+                            Registration Coming Soon
+                        </button>
+                    </div>
 
-                    {/* Footer - COMMENTED OUT */}
-                    {/* <div className="mt-3 ">
-                        <a href="https://www.fyltr.co/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="fyltr.png"
-                                className="w-30 cursor-pointer sm:w-40 mx-auto"
-                                alt="Powered by Fyltr"
-                            />
-                        </a>
-
+                    {/* Footer */}
+                    <div className="mt-6">
                         <p
-                            className="text-center text-xs opacity-60 mt-2"
+                            className="text-center text-xs opacity-60"
                             style={{ color: THEME.neutral }}
                         >
                             Need help?{" "}
                             <a
-                                href="mailto:acm@nu.edu.pk"
+                                href="mailto:khi.acm@nu.edu.pk"
                                 className="underline hover:opacity-80"
                                 style={{ color: THEME.primary }}
                             >
                                 khi.acm@nu.edu.pk
                             </a>
                         </p>
-                    </div> */}
+                    </div>
+
                 </div>
             </div>
 
