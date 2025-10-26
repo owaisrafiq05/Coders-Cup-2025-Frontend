@@ -21,6 +21,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
     };
 
     const COMPETITIVE_PROGRAMMING_FORM = "https://www.fyltr.co/f/5d5e6c8c-38fd-4c8f-8625-e20fff0fc181";
+    const OTHER_MODULES_FORM = "https://www.fyltr.co/f/5b011072-7b70-4331-9b25-38761856fb0f";
 
     const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
         if (e.target === e.currentTarget) onClose();
@@ -91,7 +92,8 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
                     {/* Other Modules Option */}
                     <div
-                        className="p-4 rounded-xl transition-all opacity-60" 
+                        onClick={() => window.open(OTHER_MODULES_FORM, "_blank")}
+                        className="p-4 rounded-xl transition-all cursor-pointer hover:shadow-lg" 
                         style={{ backgroundColor: THEME.primary }}
                     >
                         <div className="flex items-center gap-3 mb-2">
@@ -115,15 +117,13 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
                             Open to all — explore AI Analytics, Hackathons, Debugging, and more!
                         </p>
                         <button
-                            className="w-full py-2 text-sm font-semibold rounded-lg transition-all cursor-not-allowed"
+                            className="w-full py-2 text-sm font-semibold rounded-lg transition-all"
                             style={{
                                 backgroundColor: THEME.background,
-                                color: THEME.neutral,
-                                opacity: 0.7
+                                color: THEME.primary,
                             }}
-                            disabled
                         >
-                            Registration Coming Soon
+                            Register Now
                         </button>
                     </div>
 
