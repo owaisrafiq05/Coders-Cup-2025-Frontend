@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
-import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
 import RegistrationModal from "./RegistrationModal";
 import PoBotChatbot from "./PoBotChatbot";
@@ -20,7 +19,7 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "Coder's Cup", href: "/coders-cup" },
-    // { name: "Modules", href: "/modules" },
+    { name: "Modules", href: "/modules" },
     // { name: "Sponsors", href: "/sponsors" },
   ];
 
@@ -70,12 +69,6 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <HashLink
-              className="px-3 sm:px-5 text-white font-medium hover:text-[#FEFEEA] transition-all duration-200 text-sm"
-              smooth to="/#modules"
-            >
-              Modules
-            </HashLink>
           </div>
 
           {/* PoBot Button */}
@@ -178,13 +171,6 @@ const Navbar = () => {
                       {item.name}
                     </Link>
                   ))}
-                  <HashLink
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-3 text-white border-b border-[#930000]`}
-                    smooth to="/#modules"
-                  >
-                    Modules
-                  </HashLink>
                 </nav>
 
                 {/* CTA */}
