@@ -90,16 +90,6 @@ const ModulesContainer: React.FC = () => {
         }
     ];
 
-    const handleRegister = (moduleTitle: string) => {
-        console.log(`Registering for ${moduleTitle}`);
-        // registration link
-    };
-
-    const handleRulebook = (moduleTitle: string) => {
-        console.log(`Opening rulebook for ${moduleTitle}`);
-        // rule book link
-    };
-
     return (
         <section id="about" className="bg-[#FEFEEA] z-10">
             <div
