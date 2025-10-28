@@ -1,5 +1,6 @@
 import React from "react";
 import { X, Code2, Layers } from "lucide-react";
+import { COMPETITIVE_PROGRAMMING_FORM, OTHER_MODULES_FORM } from "../../constants/formLinks.constants";
 
 interface RegistrationModalProps {
     isOpen: boolean;
@@ -20,8 +21,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
         background: "#FEFEEA",
     };
 
-    const COMPETITIVE_PROGRAMMING_FORM = "https://www.fyltr.co/f/5d5e6c8c-38fd-4c8f-8625-e20fff0fc181";
-    const OTHER_MODULES_FORM = "https://www.fyltr.co/f/5b011072-7b70-4331-9b25-38761856fb0f";
+    
 
     const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
         if (e.target === e.currentTarget) onClose();
