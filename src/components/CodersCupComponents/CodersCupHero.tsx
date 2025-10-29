@@ -3,7 +3,9 @@ import { motion } from "framer-motion";
 
 const CodersCupHero = () => {
   return (
-    <section className="relative min-h-[95vh] sm:pt-[2rem] sm:min-h-screen font-outfit px-4 sm:px-6 lg:px-8 flex items-center justify-center sm:block rounded-t-[24px] sm:rounded-t-[32px]">
+    <section className="relative min-h-[95vh] font-outfit sm:min-h-screen
+     px-4 sm:px-6 lg:px-8 
+        flex items-center justify-center flex-col sm:block rounded-t-[24px] sm:rounded-t-[32px]">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <div className="absolute hidden sm:flex items-center justify-center opacity-20 w-screen h-full overflow-hidden">
           <div
@@ -73,7 +75,7 @@ const CodersCupHero = () => {
           Finale, where they compete for ultimate glory.
         </motion.p>
       </motion.div>
-      <div className="absolute top-[80%] left-1/2 transform -translate-x-1/2 sm:flex sm:justify-center">
+      <div className="sm:flex sm:justify-center mt-6 sm:mt-0">
         <ScrollIndicator />
       </div>
     </section>
