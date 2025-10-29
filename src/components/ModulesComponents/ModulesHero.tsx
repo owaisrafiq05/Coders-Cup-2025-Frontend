@@ -62,7 +62,7 @@ const Hero = () => {
                     and rise through the ranks.
                 </motion.p>
             </motion.div>
-            <div className="absolute top-[80%] md:top-[65%] left-1/2 transform -translate-x-1/2 sm:flex sm:justify-center">
+            <div className="absolute top-[80%] left-1/2 transform -translate-x-1/2 sm:flex sm:justify-center">
                 <ScrollIndicator />
             </div>
         </section>
