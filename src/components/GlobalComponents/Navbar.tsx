@@ -23,6 +23,7 @@ const Navbar = () => {
     // { name: "Sponsors", href: "/sponsors" },
   ];
 
+  //theme colors 
   const THEME = {
     primary: "#930000",
     dark: "#7E0000",
