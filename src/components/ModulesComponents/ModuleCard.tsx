@@ -105,27 +105,25 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
                     rel="noopener noreferrer"
                     className="px-3 sm:px-4 py-2 bg-[#353535] text-[#FEFEEA] rounded-lg 
                      hover:bg-[#4a4a4a] transition-colors duration-200 
-                     text-xs sm:text-sm font-medium text-center"
+                     text-xs sm:text-sm font-medium text-center cursor-pointer"
                 >
                     Register Now ↗
                 </a>
 
-                <a
-                    href={rulebookLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <button
+                    onClick={() => window.open(rulebookLink, "_blank")}
                     className="px-3 sm:px-4 py-2 bg-[#353535] text-[#FEFEEA] rounded-lg 
                      hover:bg-[#4a4a4a] transition-colors duration-200 
-                     text-xs sm:text-sm font-medium text-center"
+                     text-xs sm:text`-sm font-medium text-center cursor-pointer"
                 >
                     Rulebook ↗
-                </a>
+                </button>
             </div>
 
             {/* Desktop Image - Bottom Right */}
             <div className="hidden sm:block absolute bottom-4 right-4 w-24 h-24 md:w-32 md:h-32 z-0">
                 <div
-                    className="absolute inset-0 rounded-full opacity-30 blur-md"
+                    className="absolute inset-0 opacity-30 blur-md"
                     style={{
                         background: `radial-gradient(circle, ${glowColor}60, transparent 70%)`,
                     }}
@@ -133,7 +131,7 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
                 <img
                     src={image}
                     alt={title}
-                    className="w-full h-full object-cover relative z-10 rounded-full"
+                    className="w-full h-full object-cover relative z-10"
                     style={{
                         filter: `drop-shadow(0 0 8px ${glowColor}40)`,
                     }}

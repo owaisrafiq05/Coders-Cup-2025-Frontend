@@ -16,7 +16,7 @@ const ModulesContainer: React.FC = () => {
             date: "TBD",
             teamSize: "2-3 members",
             registrationLink: COMPETITIVE_PROGRAMMING_FORM,
-            rulebookLink: "#"
+            rulebookLink: "/ruleBook/Competitive Programming.pdf"
         },
         {
             id: 2,
@@ -44,11 +44,11 @@ const ModulesContainer: React.FC = () => {
             date: "TBD",
             teamSize: "2-3 members",
             registrationLink: OTHER_MODULES_FORM,
-            rulebookLink: "#"
+            rulebookLink: "/ruleBook/Data Dash.pdf"
         },
         {
             id: 4,
-            title: "CHI PARADOX",
+            title: "Chi Paradox By PROCOM",
             subtitle: "Riddles, Clues and Hidden Challenges",
             description: "Chi Paradox takes you into the thrilling world of Kung Fu Panda, where every challenge tests your focus, logic and balance. step into the shoes of a true warrior as you face 7 mystical stages filled with hidden clues and tricky puzzles.",
             image: "/kai-modules-img.png",
@@ -58,11 +58,11 @@ const ModulesContainer: React.FC = () => {
             date: "TBD",
             teamSize: "2-3 members",
             registrationLink: OTHER_MODULES_FORM,
-            rulebookLink: "#"
+            rulebookLink: "/Chi Paradox By PROCOM.pdf"
         },
         {
             id: 5,
-            title: "CODE-FU",
+            title: "CODE-FU: Debugging Trials",
             subtitle: "Code Debugging",
             description: "Chi Paradox takes you into the thrilling world of Kung Fu Panda, where every challenge tests your focus, logic and balance. step into the shoes of a true warrior as you face 7 mystical stages filled with hidden clues and tricky puzzles.",
             image: "/code-fu-modules.png",
@@ -72,7 +72,7 @@ const ModulesContainer: React.FC = () => {
             date: "TBD",
             teamSize: "2-3 members",
             registrationLink: OTHER_MODULES_FORM,
-            rulebookLink: "#"
+            rulebookLink: "/ruleBook/Code Fu Debugging trials.pdf"
         },
         {
             id: 6,
@@ -86,7 +86,7 @@ const ModulesContainer: React.FC = () => {
             date: "TBD",
             teamSize: "2-3 members",
             registrationLink: OTHER_MODULES_FORM,
-            rulebookLink: "#"
+            rulebookLink: "/ruleBook/Pitch Warriors.pdf"
         }
     ];
 
