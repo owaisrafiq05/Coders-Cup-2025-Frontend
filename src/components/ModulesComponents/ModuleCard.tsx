@@ -110,14 +110,16 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
                     Register Now ↗
                 </a>
 
-                <button
-                    onClick={() => window.open(rulebookLink, "_blank")}
-                    className="px-3 sm:px-4 py-2 bg-[#353535] text-[#FEFEEA] rounded-lg 
+                {title!= "Hackathon" && (
+                    <button
+                        onClick={() => window.open(rulebookLink, "_blank")}
+                        className="px-3 sm:px-4 py-2 bg-[#353535] text-[#FEFEEA] rounded-lg 
                      hover:bg-[#4a4a4a] transition-colors duration-200 
-                     text-xs sm:text`-sm font-medium text-center cursor-pointer"
+                     text-xs sm:text-sm font-medium text-center cursor-pointer"
                 >
                     Rulebook ↗
                 </button>
+                )}
             </div>
 
             {/* Desktop Image - Bottom Right */}

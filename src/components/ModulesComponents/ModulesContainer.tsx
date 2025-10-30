@@ -58,7 +58,7 @@ const ModulesContainer: React.FC = () => {
             date: "TBD",
             teamSize: "2-3 members",
             registrationLink: OTHER_MODULES_FORM,
-            rulebookLink: "/Chi Paradox By PROCOM.pdf"
+            rulebookLink: "/ruleBook/Chi Paradox By PROCOM.pdf"
         },
         {
             id: 5,

@@ -18,7 +18,7 @@ const Sponsors = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            In Collaboration With Tekno Fest Pakistan
+            In Collaboration With Teknofest Pakistan
           </motion.h2>
           <motion.img 
             src="teknofest.png" 
