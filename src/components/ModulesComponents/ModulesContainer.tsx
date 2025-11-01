@@ -4,51 +4,10 @@ import { COMPETITIVE_PROGRAMMING_FORM, OTHER_MODULES_FORM } from "../../constant
 
 const ModulesContainer: React.FC = () => {
     const modules = [
+
         {
             id: 1,
-            title: "Competitive Programming",
-            subtitle: "Algorithm Mastery Challenge",
-            description: "An annual programming contest where top teams from each batch compete through multiple rounds, tackling up to five problems from basics to dynamic programming. Finalists form houses that battle for the title. Team size: 1-3.",
-            image: "/po-without-bg.png",
-            glowColor: "#FF6B35",
-            titleColor: "#E55A2B",
-            registrationFee: "PKR 500",
-            date: "TBD",
-            teamSize: "2-3 members",
-            registrationLink: COMPETITIVE_PROGRAMMING_FORM,
-            rulebookLink: "/ruleBook/Competitive Programming.pdf"
-        },
-        {
-            id: 2,
-            title: "Hackathon",
-            subtitle: "Innovation Sprint Challenge",
-            description: "An intense coding marathon where participants design, develop, and deploy innovative solutions within a limited time. Open to all skill levels, the competition tests creativity, problem-solving, and teamwork through real-world challenges that demand both technical expertise and collaboration.",
-            image: "/shifu-without-bg.png",
-            glowColor: "#8B4513",
-            titleColor: "#7A3E11",
-            registrationFee: "PKR 800",
-            date: "TBD",
-            teamSize: "2-3 members",
-            registrationLink: OTHER_MODULES_FORM,
-            rulebookLink: "#"
-        },
-        {
-            id: 3,
-            title: "Data Dash",
-            subtitle: "Data Visualization Challenge",
-            description: "A beginner-friendly data visualization challenge where teams of 2–3 students analyze real-world datasets to uncover meaningful insights. Open to participants from all disciplines, the competition blends analytical and creative visualization techniques to answer both numerical and qualitative questions",
-            image: "/ping-without-bg.png",
-            glowColor: "#FFD700",
-            titleColor: "#E6C200",
-            registrationFee: "PKR 800",
-            date: "TBD",
-            teamSize: "2-3 members",
-            registrationLink: OTHER_MODULES_FORM,
-            rulebookLink: "/ruleBook/Data Dash.pdf"
-        },
-        {
-            id: 4,
-            title: "Chi Paradox By PROCOM",
+            title: "CHI PARADOX",
             subtitle: "Riddles, Clues and Hidden Challenges",
             description: "Chi Paradox takes you into the thrilling world of Kung Fu Panda, where every challenge tests your focus, logic and balance. step into the shoes of a true warrior as you face 7 mystical stages filled with hidden clues and tricky puzzles.",
             image: "/kai-modules-img.png",
@@ -61,10 +20,10 @@ const ModulesContainer: React.FC = () => {
             rulebookLink: "/ruleBook/Chi Paradox By PROCOM.pdf"
         },
         {
-            id: 5,
-            title: "CODE-FU: Debugging Trials",
+            id: 1,
+            title: "CODE-FU",
             subtitle: "Code Debugging",
-            description: "Chi Paradox takes you into the thrilling world of Kung Fu Panda, where every challenge tests your focus, logic and balance. step into the shoes of a true warrior as you face 7 mystical stages filled with hidden clues and tricky puzzles.",
+            description: "Every great quest hides a mystery and this one begins deep within your code. Face the Furious Five, conquer their unique debugging challenges, and collect the missing pieces of a hidden riddle. ",
             image: "/code-fu-modules.png",
             glowColor: "#FF8706",
             titleColor: "#F27D00",
@@ -75,10 +34,10 @@ const ModulesContainer: React.FC = () => {
             rulebookLink: "/ruleBook/Code Fu Debugging trials.pdf"
         },
         {
-            id: 6,
+            id: 3,
             title: "PITCH WARRIORS",
             subtitle: "Fast Paced Pitching Challenges",
-            description: "Chi Paradox takes you into the thrilling world of Kung Fu Panda, where every challenge tests your focus, logic and balance. step into the shoes of a true warrior as you face 7 mystical stages filled with hidden clues and tricky puzzles.",
+            description: "Participants engage in Fast-Paced Pitching Challenges, starting with an elevator pitch round where a team member promotes a random surprise product, judged on Clarity, Persuasiveness, and Creativity, with top team advancing.",
             image: "/pitch-warriors-modules.png",
             glowColor: "#F70000",
             titleColor: "#E40000",
@@ -87,7 +46,49 @@ const ModulesContainer: React.FC = () => {
             teamSize: "2-3 members",
             registrationLink: OTHER_MODULES_FORM,
             rulebookLink: "/ruleBook/Pitch Warriors.pdf"
-        }
+        },
+        {
+            id: 4,
+            title: "Hackathon",
+            subtitle: "Innovation Sprint Challenge",
+            description: "Guided by the wisdom of Master Shifu, participants will face diverse challenging testing their problem solving, technical, and teamwork skills. Whether you’re a beginner or a Black-Belt Coder, the Dojo welcomes all!",
+            image: "/shifu-without-bg.png",
+            glowColor: "#8B4513",
+            titleColor: "#7A3E11",
+            registrationFee: "PKR 800",
+            date: "TBD",
+            teamSize: "2-3 members",
+            registrationLink: OTHER_MODULES_FORM,
+            rulebookLink: "#"
+        },
+        {
+            id: 5,
+            title: "Data Dash",
+            subtitle: "THE ULTIMATE VISUALIZATION COMPETITION",
+            description: "Data Dash is a beginner-friendly data visualization competition where you explore a real-world dataset, perform analysis, and uncover meaningful insights.",
+            image: "/ping-without-bg.png",
+            glowColor: "#FFD700",
+            titleColor: "#E6C200",
+            registrationFee: "PKR 800",
+            date: "TBD",
+            teamSize: "2-3 members",
+            registrationLink: OTHER_MODULES_FORM,
+            rulebookLink: "/ruleBook/Data Dash.pdf"
+        },
+        {
+            id: 6,
+            title: "Competitive Programming",
+            subtitle: "THE ULTIMATE TEST OF LOGIC",
+            description: "Prepare for the Ultimate test of logic, creativity, and code! Top teams from every batch face off to to claim the Coders Cup. House Captains draft their dream teams for the finale. One house will rise above all to claim ultimate Glory.",
+            image: "/po-without-bg.png",
+            glowColor: "#FF6B35",
+            titleColor: "#E55A2B",
+            registrationFee: "PKR 500",
+            date: "TBD",
+            teamSize: "2-3 members",
+            registrationLink: COMPETITIVE_PROGRAMMING_FORM,
+            rulebookLink: "/ruleBook/Competitive Programming.pdf"
+        },
     ];
 
     return (
