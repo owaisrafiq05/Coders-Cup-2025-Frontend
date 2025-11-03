@@ -1,4 +1,4 @@
-import { UsersRound, Tag } from "lucide-react";
+import { UsersRound, Tag, ExternalLink, BookOpen } from "lucide-react";
 import type React from "react";
 
 interface ModuleCardProps {
@@ -8,12 +8,16 @@ interface ModuleCardProps {
   index: number;
   members?: string;
   fee?: number;
+  registrationLink?: string;
+  rulebookLink?: string;
 }
 
-const ModuleCard: React.FC<ModuleCardProps> = ({ name, description, mascotImage, index, members, fee }) => {
+const ModuleCard: React.FC<ModuleCardProps> = ({ name, description, mascotImage, index, members, fee, registrationLink, rulebookLink }) => {
+  // Use a fallback rulebook if none is provided
+  const finalRulebookLink = rulebookLink && rulebookLink !== "#" ? rulebookLink : "/ruleBook/General Rules.pdf";
   return (
     <div
-      className="group relative h-auto min-h-[450px] rounded-3xl overflow-hidden border-3 border-[#930000] bg-[#FEFEEA] shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2"
+      className="group relative h-[480px] rounded-3xl overflow-hidden border-3 border-[#930000] bg-[#FEFEEA] shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2"
       style={{
         animationDelay: `${index * 0.1}s`,
       }}
@@ -42,7 +46,7 @@ const ModuleCard: React.FC<ModuleCardProps> = ({ name, description, mascotImage,
         </div>
 
         {/* Description - Full Content */}
-        <div className="flex-1 mb-6">
+        <div className="flex-1 mb-3">
           <p className="text-[#131313] text-sm sm:text-base leading-relaxed font-medium opacity-90 group-hover:opacity-100 transition-opacity duration-300">
             {description}
           </p>
@@ -58,6 +62,28 @@ const ModuleCard: React.FC<ModuleCardProps> = ({ name, description, mascotImage,
             <Tag className="w-6 h-6 text-[#930000]" />
             <span>{fee === 0 ? "Free for FASTians" : `Rs. ${fee}`}</span>
           </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex-shrink-0 flex gap-3 mb-4">
+          <a
+            href={registrationLink || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-[#930000] text-[#FEFEEA] rounded-lg font-semibold text-sm hover:bg-[#7E0000] transition-colors duration-200 group-hover:shadow-lg"
+          >
+            <ExternalLink className="w-4 h-4" />
+            Register
+          </a>
+          <a
+            href={finalRulebookLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-[#D99413] text-[#FEFEEA] rounded-lg font-semibold text-sm hover:bg-[#C08512] transition-colors duration-200 group-hover:shadow-lg"
+          >
+            <BookOpen className="w-4 h-4" />
+            Rulebook
+          </a>
         </div>
 
         {/* Bottom Accent - Fixed Position */}

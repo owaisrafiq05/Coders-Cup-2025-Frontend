@@ -3,6 +3,7 @@ import { useState } from "react";
 import RegistrationModal from "../GlobalComponents/RegistrationModal";
 import ModuleCard from "./ModuleCard";
 import { motion } from "framer-motion";
+import { COMPETITIVE_PROGRAMMING_FORM, OTHER_MODULES_FORM } from "../../constants/formLinks.constants";
 
 interface ModuleData {
   name: string;
@@ -10,6 +11,8 @@ interface ModuleData {
   mascotImage: string;
   members?: string;
   fee?: number;
+  registrationLink?: string;
+  rulebookLink?: string;
 }
 
 const modulesData: ModuleData[] = [
@@ -19,7 +22,9 @@ const modulesData: ModuleData[] = [
       "An annual programming contest where top teams from each batch compete through multiple rounds, tackling up to five problems from basics to dynamic programming. Finalists form houses that battle for the title. Team size: 1–3.",
     mascotImage: "po.jpg",
     members: "2 to 3",
-    fee: 500
+    fee: 500,
+    registrationLink: COMPETITIVE_PROGRAMMING_FORM,
+    rulebookLink: "/ruleBook/Competitive Programming.pdf"
   },
   {
     name: "Hackathon",
@@ -27,7 +32,9 @@ const modulesData: ModuleData[] = [
       "An intense coding marathon where participants design, develop, and deploy innovative solutions within a limited time. Open to all skill levels, the competition tests creativity, problem-solving, and teamwork through real-world challenges that demand both technical expertise and collaboration.",
     mascotImage: "shifu.png",
     members: "2 to 3",
-    fee: 800
+    fee: 800,
+    registrationLink: OTHER_MODULES_FORM,
+    rulebookLink: "/ruleBook/General Rules.pdf"
   },
   {
     name: "Code-Fu: The Debugging Trials",
@@ -35,7 +42,9 @@ const modulesData: ModuleData[] = [
       "A multi-stage debugging challenge where participants identify, analyze, and fix coding bugs across diverse scenarios. Each round tests accuracy, speed, and logical reasoning under pressure, leading participants to uncover a hidden message by the end of the journey.",
     mascotImage: "furious-five.png",
     members: "2 to 3",
-    fee: 800
+    fee: 800,
+    registrationLink: OTHER_MODULES_FORM,
+    rulebookLink: "/ruleBook/Code Fu Debugging trials.pdf"
   },
   {
     name: "Data Dash",
@@ -43,7 +52,9 @@ const modulesData: ModuleData[] = [
       "A beginner-friendly data visualization challenge where teams of 2–3 students analyze real-world datasets to uncover meaningful insights. Open to participants from all disciplines, the competition blends analytical and creative visualization techniques to answer both numerical and qualitative questions.",
     mascotImage: "ping.png",
     members: "2 to 3",
-    fee: 800
+    fee: 800,
+    registrationLink: OTHER_MODULES_FORM,
+    rulebookLink: "/ruleBook/Data Dash.pdf"
   },
   {
     name: "Chi Paradox - By PROCOM",
@@ -51,7 +62,9 @@ const modulesData: ModuleData[] = [
       "A logic and puzzle-solving challenge inspired by the balance and wisdom of Kung Fu Panda’s universe. Participants progress through seven stages filled with riddles, sequences, and reasoning-based tasks that test intellect, patience, and critical thinking.",
     mascotImage: "kai.png",
     members: "2 to 3",
-    fee: 800
+    fee: 800,
+    registrationLink: OTHER_MODULES_FORM,
+    rulebookLink: "/ruleBook/Chi Paradox By PROCOM.pdf"
   },
   {
     name: "Pitch Warriors",
@@ -59,7 +72,9 @@ const modulesData: ModuleData[] = [
       "A one-day marketing competition testing creativity, persuasion, and adaptability. Teams of 2–4 compete in two rounds — ‘Pitch Perfect’, featuring spontaneous elevator pitches, and ‘Brand Battle’, where finalists develop and defend brand strategies while reacting to surprise market crises. ",
     mascotImage: "chama.png",
     members: "2 to 3",
-    fee: 800
+    fee: 800,
+    registrationLink: OTHER_MODULES_FORM,
+    rulebookLink: "/ruleBook/Pitch Warriors.pdf"
   }
 ];
 
@@ -121,6 +136,8 @@ const ModulesSection: React.FC = () => {
                 members={module.members}
                 fee={module.fee}
                 index={index}
+                registrationLink={module.registrationLink}
+                rulebookLink={module.rulebookLink}
               />
             </motion.div>
           ))}

@@ -8,7 +8,15 @@ interface ModuleCardProps {
     glowColor: string;
     titleColor: string;
     registrationFee: string;
-    date: string;
+    scheduleInfo: {
+        date?: string;
+        startTime?: string;
+        duration?: string;
+        qualifiers?: string;
+        finals?: string;
+        onlineStart?: string;
+        finalPresentation?: string;
+    };
     teamSize: string;
     registrationLink: string;
     rulebookLink: string;
@@ -22,7 +30,7 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
     glowColor,
     titleColor,
     registrationFee,
-    date,
+    scheduleInfo,
     teamSize,
     registrationLink,
     rulebookLink,
@@ -31,7 +39,7 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
         <motion.div
             className="relative rounded-2xl p-4 sm:p-6 bg-[#ffe6af] 
                  shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden
-                 min-h-[280px] sm:min-h-[320px] flex flex-col justify-between"
+                 min-h-[260px] sm:min-h-[280px] flex flex-col justify-between"
             style={{
                 boxShadow: `0 8px 32px ${glowColor}40, 0 4px 16px ${glowColor}20`,
             }}
@@ -80,18 +88,61 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
 
                 {/* Registration Details */}
                 <div className="mb-4 sm:mb-6 p-3 rounded-lg border border-white/30">
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                         <div className="flex flex-col">
-                            <span className="text-xs font-medium text-[#353535] opacity-70 uppercase tracking-wide">Fee</span>
+                            <span className="text-xs font-medium text-[#353535] opacity-70 uppercase tracking-wide">Registration Fee</span>
                             <span className="text-sm sm:text-base font-bold text-[#353535]">{registrationFee}</span>
-                        </div>
-                        <div className="flex flex-col">
-                            <span className="text-xs font-medium text-[#353535] opacity-70 uppercase tracking-wide">Date</span>
-                            <span className="text-sm sm:text-base font-bold text-[#353535]">{date}</span>
                         </div>
                         <div className="flex flex-col">
                             <span className="text-xs font-medium text-[#353535] opacity-70 uppercase tracking-wide">Team Size</span>
                             <span className="text-sm sm:text-base font-bold text-[#353535]">{teamSize}</span>
+                        </div>
+                    </div>
+                    
+                    {/* Schedule Information - Compact Horizontal Layout */}
+                    <div className="mt-3 pt-3 border-t border-white/30">
+                        <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs sm:text-sm">
+                            {scheduleInfo.date && (
+                                <span className="text-[#353535]">
+                                    <span className="font-medium opacity-70">Date:</span> <span className="font-bold">{scheduleInfo.date}</span>
+                                </span>
+                            )}
+                            
+                            {scheduleInfo.startTime && (
+                                <span className="text-[#353535]">
+                                    <span className="font-medium opacity-70">Time:</span> <span className="font-bold">{scheduleInfo.startTime}</span>
+                                </span>
+                            )}
+                            
+                            {scheduleInfo.duration && (
+                                <span className="text-[#353535]">
+                                    <span className="font-medium opacity-70">Duration:</span> <span className="font-bold">{scheduleInfo.duration}</span>
+                                </span>
+                            )}
+                            
+                            {scheduleInfo.qualifiers && (
+                                <span className="text-[#353535]">
+                                    <span className="font-medium opacity-70">Qualifiers:</span> <span className="font-bold">{scheduleInfo.qualifiers}</span>
+                                </span>
+                            )}
+                            
+                            {scheduleInfo.finals && (
+                                <span className="text-[#353535]">
+                                    <span className="font-medium opacity-70">Finals:</span> <span className="font-bold">{scheduleInfo.finals}</span>
+                                </span>
+                            )}
+                            
+                            {scheduleInfo.onlineStart && (
+                                <span className="text-[#353535]">
+                                    <span className="font-medium opacity-70">Online:</span> <span className="font-bold">{scheduleInfo.onlineStart}</span>
+                                </span>
+                            )}
+                            
+                            {scheduleInfo.finalPresentation && (
+                                <span className="text-[#353535]">
+                                    <span className="font-medium opacity-70">Final:</span> <span className="font-bold">{scheduleInfo.finalPresentation}</span>
+                                </span>
+                            )}
                         </div>
                     </div>
                 </div>

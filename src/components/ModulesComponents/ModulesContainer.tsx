@@ -14,7 +14,11 @@ const ModulesContainer: React.FC = () => {
             glowColor: "#19FB00",
             titleColor: "#0F9800",
             registrationFee: "PKR 800",
-            date: "TBD",
+            scheduleInfo: {
+                date: "20th November 2024",
+                startTime: "10:45 AM",
+                duration: "2 hours"
+            },
             teamSize: "2-3 members",
             registrationLink: OTHER_MODULES_FORM,
             rulebookLink: "/ruleBook/Chi Paradox By PROCOM.pdf"
@@ -28,7 +32,11 @@ const ModulesContainer: React.FC = () => {
             glowColor: "#FF8706",
             titleColor: "#F27D00",
             registrationFee: "PKR 800",
-            date: "TBD",
+            scheduleInfo: {
+                date: "19th November 2024",
+                startTime: "10:45 AM",
+                duration: "2 hours"
+            },
             teamSize: "2-3 members",
             registrationLink: OTHER_MODULES_FORM,
             rulebookLink: "/ruleBook/Code Fu Debugging trials.pdf"
@@ -42,7 +50,9 @@ const ModulesContainer: React.FC = () => {
             glowColor: "#F70000",
             titleColor: "#E40000",
             registrationFee: "PKR 800",
-            date: "TBD",
+            scheduleInfo: {
+                date: "19th November 2024"
+            },
             teamSize: "2-3 members",
             registrationLink: OTHER_MODULES_FORM,
             rulebookLink: "/ruleBook/Pitch Warriors.pdf"
@@ -56,10 +66,14 @@ const ModulesContainer: React.FC = () => {
             glowColor: "#8B4513",
             titleColor: "#7A3E11",
             registrationFee: "PKR 800",
-            date: "TBD",
+            scheduleInfo: {
+                onlineStart: "17th November 2024",
+                duration: "48 hours",
+                finalPresentation: "19th November 2024 at FAST"
+            },
             teamSize: "2-3 members",
             registrationLink: OTHER_MODULES_FORM,
-            rulebookLink: "#"
+            rulebookLink: "/ruleBook/General Rules.pdf"
         },
         {
             id: 5,
@@ -70,7 +84,11 @@ const ModulesContainer: React.FC = () => {
             glowColor: "#FFD700",
             titleColor: "#E6C200",
             registrationFee: "PKR 800",
-            date: "TBD",
+            scheduleInfo: {
+                date: "19th November 2024",
+                startTime: "10:45 AM",
+                duration: "2 hours"
+            },
             teamSize: "2-3 members",
             registrationLink: OTHER_MODULES_FORM,
             rulebookLink: "/ruleBook/Data Dash.pdf"
@@ -84,7 +102,10 @@ const ModulesContainer: React.FC = () => {
             glowColor: "#FF6B35",
             titleColor: "#E55A2B",
             registrationFee: "PKR 500",
-            date: "TBD",
+            scheduleInfo: {
+                qualifiers: "10th - 17th November 2024",
+                finals: "18th November 2024 (Coders Tank + Final Round)"
+            },
             teamSize: "2-3 members",
             registrationLink: COMPETITIVE_PROGRAMMING_FORM,
             rulebookLink: "/ruleBook/Competitive Programming.pdf"
@@ -137,7 +158,7 @@ const ModulesContainer: React.FC = () => {
                                     glowColor={module.glowColor}
                                     titleColor={module.titleColor}
                                     registrationFee={module.registrationFee}
-                                    date={module.date}
+                                    scheduleInfo={module.scheduleInfo}
                                     teamSize={module.teamSize}
                                     registrationLink={module.registrationLink}
                                     rulebookLink={module.rulebookLink}

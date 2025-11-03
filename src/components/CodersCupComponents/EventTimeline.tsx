@@ -15,25 +15,25 @@ interface TimelineEvent {
 const events: TimelineEvent[] = [
   {
     id: "1",
-    title: "Batch Qualifiers",
+    title: "Qualifiers (10-17 Nov)",
     description:
-      "Only FASTians can participate. Competitors from each batch face off in a 1-2 hour coding challenge featuring 3-5 algorithmic problems.",
+      "Only FASTians can participate. Competitors from each batch face off in a 1-2 hour coding challenge featuring 3-5 algorithmic problems. Top teams from each batch advance to the next stage.",
     icon: <Code2 className="w-6 h-6" />,
     position: "left",
   },
   {
     id: "2",
-    title: "The Auction War",
+    title: "Coders Tank (18 Nov)",
     description:
-      "House Captains enter the arena to bid on individual participants from the qualified teams to form their House Teams.",
+      "House Captains enter the arena to bid on individual participants from the qualified teams to form their House Teams. Strategic bidding determines team composition for the finale.",
     icon: <Gavel className="w-6 h-6" />,
     position: "right",
   },
   {
     id: "3",
-    title: "The Grand Finale",
+    title: "Grand Finale (18 Nov)",
     description:
-      "Newly formed house teams compete head-to-head in the final coding showdown to determine the winning house.",
+      "Newly formed house teams compete head-to-head in the final coding showdown to determine the winning house. The ultimate test of logic, creativity, and teamwork.",
     icon: <Trophy className="w-6 h-6" />,
     position: "left",
   },
