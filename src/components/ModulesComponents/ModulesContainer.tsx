@@ -73,7 +73,7 @@ const ModulesContainer: React.FC = () => {
             },
             teamSize: "2-3 members",
             registrationLink: OTHER_MODULES_FORM,
-            rulebookLink: "/ruleBook/General Rules.pdf"
+            rulebookLink: "/ruleBook/Hackathon Rule Book.pdf"
         },
         {
             id: 5,

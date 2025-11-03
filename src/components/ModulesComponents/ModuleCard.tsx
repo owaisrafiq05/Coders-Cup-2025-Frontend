@@ -161,7 +161,7 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
                     Register Now ↗
                 </a>
 
-                {title!= "Hackathon" && (
+                
                     <button
                         onClick={() => window.open(rulebookLink, "_blank")}
                         className="px-3 sm:px-4 py-2 bg-[#353535] text-[#FEFEEA] rounded-lg 
@@ -170,7 +170,6 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
                 >
                     Rulebook ↗
                 </button>
-                )}
             </div>
 
             {/* Desktop Image - Bottom Right */}
