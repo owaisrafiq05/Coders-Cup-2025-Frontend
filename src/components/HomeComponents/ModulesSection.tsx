@@ -13,6 +13,7 @@ interface ModuleData {
   fee?: number;
   registrationLink?: string;
   rulebookLink?: string;
+  isRegistrationClosed?: boolean;
 }
 
 const modulesData: ModuleData[] = [
@@ -24,7 +25,8 @@ const modulesData: ModuleData[] = [
     members: "2 to 3",
     fee: 500,
     registrationLink: COMPETITIVE_PROGRAMMING_FORM,
-    rulebookLink: "/ruleBook/Competitive Programming.pdf"
+    rulebookLink: "/ruleBook/Competitive Programming.pdf",
+    isRegistrationClosed: true
   },
   {
     name: "Hackathon",
@@ -44,7 +46,8 @@ const modulesData: ModuleData[] = [
     members: "2 to 3",
     fee: 800,
     registrationLink: OTHER_MODULES_FORM,
-    rulebookLink: "/ruleBook/Code Fu Debugging trials.pdf"
+    rulebookLink: "/ruleBook/Code Fu Debugging trials.pdf",
+    isRegistrationClosed: true
   },
   {
     name: "Data Dash",
@@ -59,12 +62,13 @@ const modulesData: ModuleData[] = [
   {
     name: "Chi Paradox - By PROCOM",
     description:
-      "A logic and puzzle-solving challenge inspired by the balance and wisdom of Kung Fu Panda’s universe. Participants progress through seven stages filled with riddles, sequences, and reasoning-based tasks that test intellect, patience, and critical thinking.",
+      "A logic and puzzle-solving challenge inspired by the balance and wisdom of Kung Fu Panda's universe. Participants progress through seven stages filled with riddles, sequences, and reasoning-based tasks that test intellect, patience, and critical thinking.",
     mascotImage: "kai.png",
     members: "2 to 3",
     fee: 800,
     registrationLink: OTHER_MODULES_FORM,
-    rulebookLink: "/ruleBook/Chi Paradox By PROCOM.pdf"
+    rulebookLink: "/ruleBook/Chi Paradox By PROCOM.pdf",
+    isRegistrationClosed: true
   },
   {
     name: "Pitch Warriors",
@@ -138,6 +142,7 @@ const ModulesSection: React.FC = () => {
                 index={index}
                 registrationLink={module.registrationLink}
                 rulebookLink={module.rulebookLink}
+                isRegistrationClosed={module.isRegistrationClosed}
               />
             </motion.div>
           ))}

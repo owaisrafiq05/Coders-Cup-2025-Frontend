@@ -21,7 +21,8 @@ const ModulesContainer: React.FC = () => {
             },
             teamSize: "2-3 members",
             registrationLink: OTHER_MODULES_FORM,
-            rulebookLink: "/ruleBook/Chi Paradox By PROCOM.pdf"
+            rulebookLink: "/ruleBook/Chi Paradox By PROCOM.pdf",
+            isRegistrationClosed: true
         },
         {
             id: 1,
@@ -39,7 +40,8 @@ const ModulesContainer: React.FC = () => {
             },
             teamSize: "2-3 members",
             registrationLink: OTHER_MODULES_FORM,
-            rulebookLink: "/ruleBook/Code Fu Debugging trials.pdf"
+            rulebookLink: "/ruleBook/Code Fu Debugging trials.pdf",
+            isRegistrationClosed: true
         },
         {
             id: 3,
@@ -108,7 +110,8 @@ const ModulesContainer: React.FC = () => {
             },
             teamSize: "2-3 members",
             registrationLink: COMPETITIVE_PROGRAMMING_FORM,
-            rulebookLink: "/ruleBook/Competitive Programming.pdf"
+            rulebookLink: "/ruleBook/Competitive Programming.pdf",
+            isRegistrationClosed: true
         },
     ];
 
@@ -162,6 +165,7 @@ const ModulesContainer: React.FC = () => {
                                     teamSize={module.teamSize}
                                     registrationLink={module.registrationLink}
                                     rulebookLink={module.rulebookLink}
+                                    isRegistrationClosed={module.isRegistrationClosed}
                                 />
                             </motion.div>
                         ))}

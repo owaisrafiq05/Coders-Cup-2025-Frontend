@@ -10,9 +10,10 @@ interface ModuleCardProps {
   fee?: number;
   registrationLink?: string;
   rulebookLink?: string;
+  isRegistrationClosed?: boolean;
 }
 
-const ModuleCard: React.FC<ModuleCardProps> = ({ name, description, mascotImage, index, members, fee, registrationLink, rulebookLink }) => {
+const ModuleCard: React.FC<ModuleCardProps> = ({ name, description, mascotImage, index, members, fee, registrationLink, rulebookLink, isRegistrationClosed = false }) => {
   // Use a fallback rulebook if none is provided
   const finalRulebookLink = rulebookLink && rulebookLink !== "#" ? rulebookLink : "/ruleBook/General Rules.pdf";
   return (
@@ -66,15 +67,25 @@ const ModuleCard: React.FC<ModuleCardProps> = ({ name, description, mascotImage,
 
         {/* Action Buttons */}
         <div className="flex-shrink-0 flex gap-3 mb-4">
-          <a
-            href={registrationLink || "#"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-[#930000] text-[#FEFEEA] rounded-lg font-semibold text-sm hover:bg-[#7E0000] transition-colors duration-200 group-hover:shadow-lg"
-          >
-            <ExternalLink className="w-4 h-4" />
-            Register
-          </a>
+          {isRegistrationClosed ? (
+            <button
+              disabled
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-[#930000] text-[#FEFEEA] rounded-lg font-semibold text-sm opacity-50 cursor-not-allowed"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Closed
+            </button>
+          ) : (
+            <a
+              href={registrationLink || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-[#930000] text-[#FEFEEA] rounded-lg font-semibold text-sm hover:bg-[#7E0000] transition-colors duration-200 group-hover:shadow-lg"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Register
+            </a>
+          )}
           <a
             href={finalRulebookLink}
             target="_blank"

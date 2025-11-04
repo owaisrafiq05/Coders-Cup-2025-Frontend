@@ -26,7 +26,7 @@ const Sponsors = () => {
               transition={{ duration: 0.5, ease: "easeOut" }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              Our Sponsor
+              Our Main Sponsor
             </motion.h2>
             <motion.img
               src="sponsor2.png"

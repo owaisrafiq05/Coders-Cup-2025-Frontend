@@ -20,6 +20,7 @@ interface ModuleCardProps {
     teamSize: string;
     registrationLink: string;
     rulebookLink: string;
+    isRegistrationClosed?: boolean;
 }
 
 const ModuleCard: React.FC<ModuleCardProps> = ({
@@ -34,6 +35,7 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
     teamSize,
     registrationLink,
     rulebookLink,
+    isRegistrationClosed = false,
 }) => {
     return (
         <motion.div
@@ -150,21 +152,31 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mt-auto relative z-10">
-                <a
-                    href={registrationLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3 sm:px-4 py-2 bg-[#353535] text-[#FEFEEA] rounded-lg 
-                     hover:bg-[#4a4a4a] transition-colors duration-200 
-                     text-xs sm:text-sm font-medium text-center cursor-pointer"
-                >
-                    Register Now ↗
-                </a>
-
-                
+                {isRegistrationClosed ? (
                     <button
-                        onClick={() => window.open(rulebookLink, "_blank")}
+                        disabled
                         className="px-3 sm:px-4 py-2 bg-[#353535] text-[#FEFEEA] rounded-lg 
+                         opacity-50 cursor-not-allowed
+                         text-xs sm:text-sm font-medium text-center"
+                    >
+                        Registrations Closed
+                    </button>
+                ) : (
+                    <a
+                        href={registrationLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 sm:px-4 py-2 bg-[#353535] text-[#FEFEEA] rounded-lg 
+                         hover:bg-[#4a4a4a] transition-colors duration-200 
+                         text-xs sm:text-sm font-medium text-center cursor-pointer"
+                    >
+                        Register Now ↗
+                    </a>
+                )}
+
+                <button
+                    onClick={() => window.open(rulebookLink, "_blank")}
+                    className="px-3 sm:px-4 py-2 bg-[#353535] text-[#FEFEEA] rounded-lg 
                      hover:bg-[#4a4a4a] transition-colors duration-200 
                      text-xs sm:text-sm font-medium text-center cursor-pointer"
                 >

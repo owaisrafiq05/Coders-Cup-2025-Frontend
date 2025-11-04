@@ -174,12 +174,12 @@ const CompetitionDetails = () => {
                             >
                                 View All Modules
                             </a>
-                            <a
-                                href="#"
-                                className="inline-flex items-center justify-center px-8 py-3 bg-[#D99413] text-white rounded-lg font-semibold hover:bg-[#C08512] transition-colors duration-200"
+                            <button
+                                disabled
+                                className=" inline-flex items-center justify-center px-8 py-3 bg-[#D99413] text-white rounded-lg font-semibold transition-colors duration-200 cursor-not-allowed opacity-50"
                             >
-                                Register for Coders Cup
-                            </a>
+                                Registerations closed
+                            </button>
                         </div>
                     </div>
                 </motion.div>
