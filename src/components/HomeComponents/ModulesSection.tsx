@@ -34,7 +34,7 @@ const modulesData: ModuleData[] = [
     members: "2 to 3",
     fee: 800,
     registrationLink: OTHER_MODULES_FORM,
-    rulebookLink: "/ruleBook/General Rules.pdf"
+    rulebookLink: "/ruleBook/Hackathon Rule Book.pdf"
   },
   {
     name: "Code-Fu: The Debugging Trials",
