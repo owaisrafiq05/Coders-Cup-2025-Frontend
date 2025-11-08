@@ -111,7 +111,7 @@ const ModulesContainer: React.FC = () => {
             teamSize: "2-3 members",
             registrationLink: COMPETITIVE_PROGRAMMING_FORM,
             rulebookLink: "/ruleBook/Competitive Programming.pdf",
-            isRegistrationClosed: true
+            isRegistrationClosed: false
         },
     ];
 

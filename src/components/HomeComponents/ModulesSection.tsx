@@ -26,7 +26,7 @@ const modulesData: ModuleData[] = [
     fee: 500,
     registrationLink: COMPETITIVE_PROGRAMMING_FORM,
     rulebookLink: "/ruleBook/Competitive Programming.pdf",
-    isRegistrationClosed: true
+    isRegistrationClosed: false
   },
   {
     name: "Hackathon",
