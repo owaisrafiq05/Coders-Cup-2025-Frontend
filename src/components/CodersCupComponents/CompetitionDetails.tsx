@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Calendar, Clock, Users, Trophy, Target, Zap } from "lucide-react";
+import { COMPETITIVE_PROGRAMMING_FORM } from "../../constants/formLinks.constants";
 
 const CompetitionDetails = () => {
     const details = [
@@ -174,12 +175,14 @@ const CompetitionDetails = () => {
                             >
                                 View All Modules
                             </a>
-                            <button
-                                disabled
-                                className=" inline-flex items-center justify-center px-8 py-3 bg-[#D99413] text-white rounded-lg font-semibold transition-colors duration-200 cursor-not-allowed opacity-50"
+                            <a
+                                href={COMPETITIVE_PROGRAMMING_FORM}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center px-8 py-3 bg-[#D99413] text-white rounded-lg font-semibold hover:bg-[#c4820f] transition-colors duration-200"
                             >
-                                Registerations closed
-                            </button>
+                                Register Now
+                            </a>
                         </div>
                     </div>
                 </motion.div>
