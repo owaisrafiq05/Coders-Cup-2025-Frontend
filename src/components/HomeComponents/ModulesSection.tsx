@@ -26,7 +26,7 @@ const modulesData: ModuleData[] = [
     fee: 500,
     registrationLink: COMPETITIVE_PROGRAMMING_FORM,
     rulebookLink: "/ruleBook/Competitive Programming.pdf",
-    isRegistrationClosed: false
+    isRegistrationClosed: true
   },
   {
     name: "Hackathon",
@@ -36,7 +36,8 @@ const modulesData: ModuleData[] = [
     members: "2 to 3",
     fee: 800,
     registrationLink: OTHER_MODULES_FORM,
-    rulebookLink: "/ruleBook/Hackathon Rule Book.pdf"
+    rulebookLink: "/ruleBook/Hackathon Rule Book.pdf",
+    isRegistrationClosed: true
   },
   {
     name: "Code-Fu: The Debugging Trials",
@@ -57,7 +58,8 @@ const modulesData: ModuleData[] = [
     members: "2 to 3",
     fee: 800,
     registrationLink: OTHER_MODULES_FORM,
-    rulebookLink: "/ruleBook/Data Dash.pdf"
+    rulebookLink: "/ruleBook/Data Dash.pdf",
+    isRegistrationClosed: true
   },
   {
     name: "Chi Paradox - By PROCOM",

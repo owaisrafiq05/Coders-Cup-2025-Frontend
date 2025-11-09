@@ -1,9 +1,6 @@
 import React from "react";
 import { X, Code2, Layers } from "lucide-react";
-import {
-    COMPETITIVE_PROGRAMMING_FORM,
-    OTHER_MODULES_FORM,
-} from "../../constants/formLinks.constants";
+import { OTHER_MODULES_FORM } from "../../constants/formLinks.constants";
 
 interface RegistrationModalProps {
     isOpen: boolean;
@@ -58,10 +55,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
                 <div className="p-5 space-y-4" style={{ backgroundColor: THEME.background }}>
                     {/* Competitive Programming Module */}
                     <div
-                        onClick={() =>
-                            window.open(COMPETITIVE_PROGRAMMING_FORM, "_blank")
-                        }
-                        className="p-4 rounded-xl transition-all cursor-pointer hover:shadow-lg"
+                        className="p-4 rounded-xl transition-all cursor-not-allowed opacity-70"
                         style={{ backgroundColor: THEME.primary }}
                     >
                         <div className="flex items-center gap-3 mb-2">
@@ -85,20 +79,15 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
                             FASTians only - Join Coder's Cup and test your algorithmic skills!
                         </p>
                         <button
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                window.open(
-                                    COMPETITIVE_PROGRAMMING_FORM,
-                                    "_blank"
-                                );
-                            }}
-                            className="w-full py-2 text-sm font-semibold rounded-lg transition-all cursor-pointer"
+                            disabled
+                            className="w-full py-2 text-sm font-semibold rounded-lg transition-all cursor-not-allowed"
                             style={{
                                 backgroundColor: THEME.background,
                                 color: THEME.primary,
+                                opacity: 0.7,
                             }}
                         >
-                            Register Now
+                            Registrations Closed
                         </button>
                     </div>
 

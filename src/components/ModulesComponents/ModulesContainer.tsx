@@ -75,7 +75,8 @@ const ModulesContainer: React.FC = () => {
             },
             teamSize: "2-3 members",
             registrationLink: OTHER_MODULES_FORM,
-            rulebookLink: "/ruleBook/Hackathon Rule Book.pdf"
+            rulebookLink: "/ruleBook/Hackathon Rule Book.pdf",
+            isRegistrationClosed: true
         },
         {
             id: 5,
@@ -93,7 +94,8 @@ const ModulesContainer: React.FC = () => {
             },
             teamSize: "2-3 members",
             registrationLink: OTHER_MODULES_FORM,
-            rulebookLink: "/ruleBook/Data Dash.pdf"
+            rulebookLink: "/ruleBook/Data Dash.pdf",
+            isRegistrationClosed: true
         },
         {
             id: 6,
@@ -111,7 +113,7 @@ const ModulesContainer: React.FC = () => {
             teamSize: "2-3 members",
             registrationLink: COMPETITIVE_PROGRAMMING_FORM,
             rulebookLink: "/ruleBook/Competitive Programming.pdf",
-            isRegistrationClosed: false
+            isRegistrationClosed: true
         },
     ];
 
