@@ -31,7 +31,7 @@ const Sponsors = () => {
             <motion.img
               src="sponsor2.png"
               alt="Sponsors"
-              className="h-12 sm:h-12 md:h-16 lg:h-20 object-contain"
+              className="h-12 sm:h-12 md:h-16 lg:h-20 object-contain bg-white p-4 rounded-xl"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
