@@ -121,12 +121,13 @@ const Footer = () => {
                   <li className="flex justify-start gap-3 ">
                     <a href="https://www.linkedin.com/in/arham-alvi-62068b1bb/" target="_blank" className="hover:text-[#FFF] transition-colors hover:underline flex items-center gap-2"><LinkedInIcon className="w-5 h-5" /> <p>Arham Alvi</p></a>
                   </li>
+                   <li className="flex justify-start gap-3 ">
+                    <a href="https://www.linkedin.com/in/shareeq-rashid-a4b7a4285/" target="_blank" className="hover:text-[#FFF] transition-colors hover:underline flex items-center gap-2"><LinkedInIcon className="w-5 h-5" /> <p>Shareeq Rashid</p></a>
+                  </li>
                   <li className="flex justify-start gap-3">
                     <a href="https://www.linkedin.com/in/mariumnoor29" target="_blank" className="hover:text-[#FFF] transition-colors hover:underline flex items-center gap-2"><LinkedInIcon className="w-5 h-5" /> <p>Marium Noor</p></a>
                   </li>
-                  <li className="flex justify-start gap-3 ">
-                    <a href="https://www.linkedin.com/in/arham-alvi-62068b1bb" target="_blank" className="hover:text-[#FFF] transition-colors hover:underline flex items-center gap-2"><LinkedInIcon className="w-5 h-5" /> <p>Shareeq Rashid</p></a>
-                  </li>
+                 
                 </ul>
               </div>
             </div>
