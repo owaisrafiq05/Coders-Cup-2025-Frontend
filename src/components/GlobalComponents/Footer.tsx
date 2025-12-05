@@ -49,34 +49,29 @@ const Footer = () => {
             {/* Quick Links */}
             <div className="text-left">
               <h3 className="text-base sm:text-[18px] md:text-[20px] lg:text-[22px] font-bold tracking-wider">
-                Quick Links
-              </h3>
-              <nav className="mt-3 sm:mt-4 flex flex-col gap-2 sm:gap-3">
-                <a
-                  href="/"
-                  className="text-sm sm:text-[18px] md:text-[19px] lg:text-[20px] font-normal tracking-wider hover:text-[#FFF] transition-colors"
-                >
-                  Home
-                </a>
-                <a
-                  href="/coders-cup"
-                  className="text-[18px] md:text-[19px] lg:text-[20px] font-normal tracking-wider hover:text-[#FFF] transition-colors"
-                >
-                  Coder’s Cup
-                </a>
-                <a
-                  href="/#modules"
-                  className="text-[18px] md:text-[19px] lg:text-[20px] font-normal tracking-wider hover:text-[#FFF] transition-colors"
-                >
-                  Module’s
-                </a>
+                  About Our Designers
+                </h3>
+                <ul className="mt-3 sm:mt-4 space-y-2 sm:space-y-4">
+                  <li className="flex justify-start gap-3 ">
+                    <a href="https://www.linkedin.com/in/asjad-bin-rehan-a820532a6" target="_blank" className="hover:text-[#FFF] transition-colors hover:underline flex items-center gap-2">
+                    <LinkedInIcon className="w-5 h-5" /> <p>Asjad Bin Rehan</p></a>
+                  </li>
+                  <li className="flex justify-start gap-3 ">
+                    <a href="https://www.linkedin.com/in/hasan-sami" target="_blank" className="hover:text-[#FFF] transition-colors hover:underline flex items-center gap-2">
+                    <LinkedInIcon className="w-5 h-5" /> <p>Hasan Sami</p></a>
+                  </li>
+                  <li className="flex justify-start gap-3 ">
+                    <a href="https://www.linkedin.com/in/sameed-jamal" target="_blank" className="hover:text-[#FFF] transition-colors hover:underline flex items-center gap-2">
+                    <LinkedInIcon className="w-5 h-5" /> <p>Sameed Jamal</p></a>
+                  </li>
+                  
+                </ul>
                 {/* <a
                   href="/sponsors"
                   className="text-[18px] md:text-[19px] lg:text-[20px] font-normal tracking-wider hover:text-[#FFF] transition-colors"
                 >
                   Sponsors
                 </a> */}
-              </nav>
             </div>
 
             {/* Contacts */}
