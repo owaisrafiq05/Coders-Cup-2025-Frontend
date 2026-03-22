@@ -113,6 +113,24 @@ const Concluded = () => {
             Stay connected with us for more exciting events in the future!
           </p>
 
+          <motion.div
+            className="mt-8"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+          >
+            <a
+              href="https://devday26.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              aria-label="Registration For Developers Day 2026 are open. Check it out (opens in new tab)"
+              className="w-full max-w-md mx-auto inline-flex flex-col items-center justify-center gap-1 bg-[#930000] text-white font-bold px-6 py-4 rounded-full shadow-2xl text-lg md:text-xl tracking-wide transform hover:scale-105 transition-transform duration-200 ease-out"
+            >
+              <span className="block">Registration For Developers Day 2026 are open</span>
+              <span className="block text-sm md:text-base underline">Check it out</span>
+            </a>
+          </motion.div>
           <div className="flex flex-wrap items-center justify-center gap-4 mt-4">
             
 
